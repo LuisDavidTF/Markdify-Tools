@@ -1,0 +1,148 @@
+/* ==========================================================================
+   DESIGN TOKENS & SYSTEM VARIABLES (variables.css)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Common Accent Colors */
+  --accent-h: 262;
+  --accent-s: 83%;
+  --accent-l: 58%;
+  --accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+  --accent-glow: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.35);
+  --accent-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 10%));
+  
+  --accent-success: hsl(142, 71%, 45%);
+  --accent-success-bg: hsla(142, 71%, 45%, 0.08);
+  --accent-error: hsl(0, 84%, 60%);
+  --accent-error-bg: hsla(0, 84%, 60%, 0.08);
+  --accent-warning: hsl(38, 92%, 50%);
+  --accent-warning-bg: hsla(38, 92%, 50%, 0.08);
+  
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Outfit', var(--font-sans);
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Layout Metrics */
+  --header-height: 72px;
+  --sidebar-width: 300px;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  
+  --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   THEME PALETTES (DARK BY DEFAULT / SYSTEM PREFERENCE)
+   ========================================================================== */
+
+/* Dark Mode Tokens */
+:root {
+  --bg-main: hsl(224, 45%, 6%);
+  --bg-card: hsl(224, 38%, 10%);
+  --bg-sidebar: hsl(224, 42%, 8%);
+  --bg-input: hsl(224, 32%, 13%);
+  
+  --border-color: hsla(224, 100%, 100%, 0.06);
+  --border-hover: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.35);
+  
+  --text-primary: hsl(210, 40%, 98%);
+  --text-secondary: hsl(215, 20%, 74%);
+  --text-muted: hsl(218, 12%, 52%);
+  
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+  
+  --glass-bg: rgba(10, 15, 29, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-blur: 16px;
+  
+  --scrollbar-thumb: hsla(224, 100%, 100%, 0.1);
+  --scrollbar-thumb-hover: var(--accent);
+}
+
+/* Light Mode Override (Applied by OS preference if no manual choice exists) */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg-main: hsl(220, 20%, 96%);
+    --bg-card: hsl(0, 0%, 100%);
+    --bg-sidebar: hsl(220, 14%, 93%);
+    --bg-input: hsl(220, 10%, 98%);
+    
+    --border-color: hsla(222, 15%, 15%, 0.08);
+    --border-hover: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.45);
+    
+    --text-primary: hsl(224, 47%, 11%);
+    --text-secondary: hsl(220, 15%, 32%);
+    --text-muted: hsl(220, 10%, 52%);
+    
+    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+    --shadow-md: 0 6px 16px rgba(15, 23, 42, 0.06);
+    --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.08);
+    
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(15, 23, 42, 0.05);
+    --glass-blur: 12px;
+    
+    --scrollbar-thumb: rgba(15, 23, 42, 0.15);
+    --scrollbar-thumb-hover: var(--accent);
+  }
+}
+
+/* Explicit Manual Theme Choice (HTML Attribute Override) */
+[data-theme="light"] {
+  --bg-main: hsl(220, 20%, 96%);
+  --bg-card: hsl(0, 0%, 100%);
+  --bg-sidebar: hsl(220, 14%, 93%);
+  --bg-input: hsl(220, 10%, 98%);
+  
+  --border-color: hsla(222, 15%, 15%, 0.08);
+  --border-hover: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.45);
+  
+  --text-primary: hsl(224, 47%, 11%);
+  --text-secondary: hsl(220, 15%, 32%);
+  --text-muted: hsl(220, 10%, 52%);
+  
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 6px 16px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.08);
+  
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(15, 23, 42, 0.05);
+  --glass-blur: 12px;
+  
+  --scrollbar-thumb: rgba(15, 23, 42, 0.15);
+  --scrollbar-thumb-hover: var(--accent);
+}
+
+[data-theme="dark"] {
+  --bg-main: hsl(224, 45%, 6%);
+  --bg-card: hsl(224, 38%, 10%);
+  --bg-sidebar: hsl(224, 42%, 8%);
+  --bg-input: hsl(224, 32%, 13%);
+  
+  --border-color: hsla(224, 100%, 100%, 0.06);
+  --border-hover: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.35);
+  
+  --text-primary: hsl(210, 40%, 98%);
+  --text-secondary: hsl(215, 20%, 74%);
+  --text-muted: hsl(218, 12%, 52%);
+  
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+  
+  --glass-bg: rgba(10, 15, 29, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-blur: 16px;
+  
+  --scrollbar-thumb: hsla(224, 100%, 100%, 0.1);
+  --scrollbar-thumb-hover: var(--accent);
+}

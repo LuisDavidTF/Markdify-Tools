@@ -1,0 +1,402 @@
+/* ==========================================================================
+   HEIGHT-CONSTRAINED INTERACTIVE WORKSPACE (editor.css)
+   ========================================================================== */
+.app-body {
+  height: calc(100vh - var(--header-height));
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--bg-main);
+  transition: background-color var(--transition-normal);
+}
+
+/* Collapsible / Off-canvas Sidebar */
+aside.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  transition: width var(--transition-normal), transform var(--transition-normal), background-color var(--transition-normal);
+  z-index: 80;
+  overflow-y: auto;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Close button inside sidebar modal on mobile */
+.sidebar-close-btn {
+  display: none;
+}
+
+/* Backdrop for mobile overlays */
+.sidebar-backdrop {
+  display: none;
+}
+
+/* Sidebar collapsed state on desktop */
+aside.sidebar.collapsed {
+  width: 0;
+  border-right-color: transparent;
+  padding: 0;
+  overflow: hidden;
+}
+
+aside.sidebar.collapsed * {
+  display: none !important;
+}
+
+.sidebar-section {
+  padding: 24px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-section h3 {
+  font-family: var(--font-heading);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+/* Template Selectors list */
+.template-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: all var(--transition-fast);
+}
+
+.template-item:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-1px);
+}
+
+.template-item.active {
+  background-color: var(--accent-success-bg);
+  border-color: var(--accent-success);
+}
+
+.template-item.active strong {
+  color: var(--accent-success);
+}
+
+.template-icon {
+  font-size: 1.25rem;
+  background-color: var(--bg-card);
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.template-item strong {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  display: block;
+}
+
+/* Sintaxis GFM Cheatsheet Stacked Layout */
+.cheatsheet-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.cheat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.cheat-item:hover {
+  border-color: var(--border-hover);
+}
+
+.cheat-item code {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  background-color: var(--bg-card);
+  padding: 2px 8px;
+  border-radius: 4px;
+  word-break: break-all;
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+}
+
+.cheat-item span {
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.sidebar-footer-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.72rem;
+}
+
+.sidebar-footer-link:hover {
+  color: var(--accent-hover);
+}
+
+/* ==========================================================================
+   WORKSPACE SPLIT PANELS
+   ========================================================================== */
+.workspace-panels {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  min-width: 100px; /* Crucial for splitter */
+}
+
+.panel-header {
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: var(--bg-sidebar);
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  user-select: none;
+}
+
+.panel-content {
+  flex: 1;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Input text area styling */
+textarea.markdown-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  padding: 24px;
+  resize: none;
+  outline: none;
+  line-height: 1.7;
+  tab-size: 4;
+  transition: background-color var(--transition-normal);
+}
+
+textarea.markdown-input:focus {
+  background-color: var(--bg-input);
+}
+
+/* Workspace panel splitter resizer bar */
+.workspace-divider {
+  width: 6px;
+  cursor: col-resize;
+  background-color: var(--border-color);
+  position: relative;
+  z-index: 50;
+  transition: background-color var(--transition-fast);
+}
+
+.workspace-divider:hover,
+.workspace-divider.dragging {
+  background-color: var(--accent);
+}
+
+.workspace-divider::after {
+  content: '||';
+  color: var(--text-muted);
+  font-size: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  letter-spacing: -1px;
+}
+
+.workspace-divider:hover::after,
+.workspace-divider.dragging::after {
+  color: #fff;
+}
+
+/* ==========================================================================
+   MOBILE SPLIT VIEW RESPONSIVE TAB CONTROLLER
+   ========================================================================== */
+.mobile-tabs-container {
+  display: none; /* Desktop hidden */
+}
+
+@media (max-width: 900px) {
+  /* On tablets and phones we use tab-switching */
+  .mobile-tabs-container {
+    display: flex;
+    background-color: var(--bg-sidebar);
+    border-bottom: 1px solid var(--border-color);
+    width: 100%;
+    position: relative;
+    z-index: 70;
+  }
+  
+  .mobile-tab-btn {
+    flex: 1;
+    text-align: center;
+    padding: 14px;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color var(--transition-fast);
+    position: relative;
+  }
+  
+  .mobile-tab-btn.active {
+    color: var(--accent);
+  }
+  
+  .mobile-tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--accent);
+    transform: scaleX(0);
+    transition: transform var(--transition-normal);
+  }
+  
+  .mobile-tab-btn.active::after {
+    transform: scaleX(1);
+  }
+  
+  /* Sidebar responsive modal popup styled overlay on mobile/tablets */
+  aside.sidebar {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    width: 90%;
+    max-width: 440px;
+    height: auto;
+    max-height: 85vh;
+    border-radius: var(--radius-lg);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    z-index: 180;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform var(--transition-normal), opacity var(--transition-normal), background-color var(--transition-normal);
+  }
+  
+  aside.sidebar.active {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Close button inside sidebar modal on mobile */
+  .sidebar-close-btn {
+    display: block;
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    z-index: 190;
+    transition: color var(--transition-fast);
+    line-height: 1;
+  }
+
+  .sidebar-close-btn:hover {
+    color: var(--text-primary);
+  }
+
+  /* Backdrop for mobile overlays with premium blur effect */
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(5, 7, 15, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 170;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-normal);
+  }
+
+  .sidebar-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .workspace-divider {
+    display: none; /* Remove splitter in mobile */
+  }
+  
+  .workspace-panels {
+    width: 100%;
+  }
+  
+  .panel {
+    display: none; /* Hide panels by default in mobile, show active */
+    width: 100% !important;
+  }
+  
+  .panel.active {
+    display: flex;
+  }
+  
+  .panel-header {
+    display: none; /* Hide header panel bars since tabs replace it */
+  }
+}

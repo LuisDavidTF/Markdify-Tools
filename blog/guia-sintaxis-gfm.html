@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Tags -->
+  <title>Guía de Sintaxis GFM Completa: Domina GitHub Flavored Markdown | Markdify</title>
+  <meta name="description" content="El estándar definitivo para redactar especificaciones técnicas y reportes. Aprende toda la sintaxis de GFM con atajos interactivos, tablas, checklists y salto de página.">
+  <meta name="keywords" content="sintaxis gfm completa, github flavored markdown, tablas markdown, checklist markdown, markdify">
+  <meta name="author" content="Markdify Tools">
+  <meta name="robots" content="index, follow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%25%22 stop-color=%22%238B5CF6%22/%3E%3Cstop offset=%22100%25%22 stop-color=%22%23D946EF%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%230A0F1E%22/%3E%3Ctext y=%22.85em%22 font-size=%2272%22 x=%2214%22 fill=%22url(%23g)%22 font-family=%22system-ui,sans-serif%22 font-weight=%22800%22%3EM%3C/text%3E%3C/svg%3E">
+
+  <!-- Custom Design Stylesheet Aggregator -->
+  <link rel="stylesheet" href="../src/css/style.css">
+</head>
+<body>
+
+  <div id="app-container">
+    
+    <!-- STICKY HEADER -->
+    <header id="main-header">
+      <div class="logo-section">
+        <a href="../index.html" class="logo-icon" style="text-decoration: none;">M</a>
+        <div class="logo-title">
+          <span class="logo-title-heading" style="cursor: pointer;" onclick="window.location.href='../index.html'">Markdify</span>
+          <span>Blog Técnico & Guías</span>
+        </div>
+      </div>
+      
+      <div class="actions-section">
+        <a href="../index.html" class="btn btn-secondary">🏠 Suite Inicio</a>
+        <a href="../markdown-to-pdf.html" class="btn btn-primary">Abrir Editor Pro</a>
+        
+        <!-- Theme Toggle Switch -->
+        <button class="theme-toggle-btn" id="btn-toggle-theme" aria-label="Cambiar Tema" title="Cambiar Tema (Claro / Oscuro)">
+          <svg viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- ARTICLE BODY CONTAINER -->
+    <section class="article-detail-section" style="margin-top: 48px; margin-bottom: 64px;">
+      <article class="article-container">
+        <div class="article-header">
+          <span class="category">Sintaxis & GFM</span>
+          <h1>Guía de Sintaxis GFM Completa: Domina GitHub Flavored Markdown para Documentación Profesional</h1>
+          <div class="meta">Publicado por Luis David | 27 de Mayo, 2026</div>
+        </div>
+        <div class="article-body">
+          <p>En el desarrollo de software moderno, la documentación clara y precisa es tan importante como el código mismo. Para estandarizar la creación de manuales, notas de lanzamiento, archivos README y reportes, GitHub introdujo **GFM (GitHub Flavored Markdown)**, una especificación formal y expandida de la sintaxis básica de Markdown.</p>
+          
+          <p>GFM solventa las limitaciones del Markdown tradicional al añadir soporte nativo para elementos indispensables en la redacción técnica como tablas estructuradas, listas de tareas interactivas, resaltado de sintaxis de programación y enlaces web automáticos. Si eres desarrollador, estudiante o redactor técnico, dominar GFM te permitirá generar documentos listos para su publicación profesional en segundos.</p>
+
+          <blockquote>
+            <p><strong>¿Qué es GFM y cuándo se ocupa?</strong> GFM es un dialecto estricto del estándar de marcado Markdown. Se utiliza en todo el ecosistema de GitHub, y es ideal para formatear informes, minutas ágiles, manuales de usuario y hojas de vida (CV) con una visualización limpia tanto en la web como al exportarlos a PDF.</p>
+          </blockquote>
+
+          <h3>Los 10 Elementos Clave de la Sintaxis GFM</h3>
+          <p>Nuestra suite integra un <strong>Asistente GFM Completo</strong> interactivo con 28 códigos listos para insertar. A continuación, explicamos en detalle los caracteres y sintaxis que puedes utilizar en nuestro editor:</p>
+
+          <h4>1. Encabezados Estructurados (Headings)</h4>
+          <p>Para definir la estructura lógica de tu documento, utiliza el carácter numeral (<code>#</code>) seguido de un espacio. Asegúrate de tener un único H1 para el título principal:</p>
+          <pre><code># Título del Documento (H1 - Único para SEO)
+## Sección Principal (H2 - Temas Principales)
+### Subsección Técnica (H3 - Conceptos)
+#### Subtítulo Menor (H4 - Detalles adicionales)</code></pre>
+
+          <h4>2. Enfatizado y Estilos de Texto Avanzados</h4>
+          <p>Dale dinamismo visual a tus lecturas combinando negritas, cursivas, tachados y elementos HTML integrados:</p>
+          <ul>
+            <li><strong>Negrita:</strong> Envuelve el texto en doble asterisco (<code>**texto**</code>) para resaltar términos cruciales.</li>
+            <li><em>Cursiva:</em> Usa un asterisco simple (<code>*texto*</code>) para énfasis y términos en otros idiomas.</li>
+            <li>Tachado: Utiliza la tilde doble (<code>~~texto~~</code>) para indicar correcciones o código deprecado.</li>
+            <li>Subrayado: Inyecta la etiqueta HTML <code>&lt;u&gt;texto&lt;/u&gt;</code> para subrayados puntuales.</li>
+            <li>Resaltado: Usa <code>&lt;mark&gt;texto&lt;/mark&gt;</code> para simular un marcador amarillo brillante.</li>
+          </ul>
+
+          <h4>3. Listas de Tareas e Hilos (Checklists)</h4>
+          <p>Para minutas de sprint planning y seguimiento de proyectos, GFM introduce listas de tareas con casillas interactivas:</p>
+          <pre><code>- [ ] Diseñar el modelo de base de datos
+- [x] Implementar la lógica del modal responsivo
+- [ ] Compilar el paquete de distribución para producción</code></pre>
+
+          <h4>4. Tablas Comparativas y de Datos</h4>
+          <p>Organiza información compleja usando columnas alineadas con barras verticales y guiones. Puedes definir la alineación horizontal de cada columna mediante el uso de dos puntos (<code>:</code>) en la fila divisoria:</p>
+          <pre><code>| Característica | Procesamiento Local | Procesamiento en Servidor |
+| :--- | :---: | ---: |
+| **Privacidad** | 🛡️ 100% Absoluta (RAM) | ⚠️ Riesgo de Fuga de Datos |
+| **Velocidad** | Instantánea (0ms) | Depende del Ancho de Banda |
+| **Modo Offline**| Totalmente Compatible | Incompatible |</code></pre>
+
+          <h4>5. Bloques de Código de Alta Fidelidad (Code Fences)</h4>
+          <p>A diferencia de los sangrados simples, GFM define bloques de código envolviendo el código en tres acentos graves (<code>```</code>) y especificando el nombre del lenguaje de programación en el inicio para activar el resaltado de sintaxis interactivo:</p>
+          <pre><code>```javascript
+// Función para compilar localmente
+const compileMarkdown = (rawText) => {
+  return window.DOMPurify.sanitize(window.marked.parse(rawText));
+};
+```</code></pre>
+
+          <h4>6. Teclas Físicas y Combinaciones de Teclado</h4>
+          <p>Si redactas guías de usuario o manuales de herramientas, puedes renderizar teclas físicas envolviendo las letras en la etiqueta HTML <code>&lt;kbd&gt;</code>. Por ejemplo, <code>&lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;P&lt;/kbd&gt;</code> se compilará elegantemente en pantalla mostrando: <kbd>Ctrl</kbd> + <kbd>P</kbd>.</p>
+
+          <h4>7. Citas en Bloque Anidadas (Blockquotes)</h4>
+          <p>Destaca definiciones clave, consejos o advertencias anteponiendo el símbolo mayor que (<code>&gt;</code>) al inicio del párrafo:</p>
+          <pre><code>&gt; **Consejo de Portada:** Un buen reporte técnico se beneficia enormemente de citas y bloques destacados que organicen visualmente los conceptos difíciles.</code></pre>
+
+          <h4>8. Forzar Saltos de Página Nativos en PDF</h4>
+          <p>Cuando diseñas un reporte comercial o un CV y no quieres que tus tablas se corten de forma desordenada entre páginas, inyecta este atajo en tu editor en el punto exacto de separación:</p>
+          <pre><code>&lt;div style="page-break-after: always;"&gt;&lt;/div&gt;</code></pre>
+          <p>Este código interactúa directamente con el motor de PDF indicándole que inicie una página limpia y estructurada inmediatamente después.</p>
+
+          <h4>9. Notas al Pie (Footnotes)</h4>
+          <p>Agrega aclaraciones académicas o de referencia a pie de página relacionando un identificador con su explicación correspondiente:</p>
+          <pre><code>Este convertidor funciona de forma client-side[^1].
+
+[^1]: Todos los cálculos y compilaciones se ejecutan en la memoria de tu navegador local.</code></pre>
+
+          <h4>10. Acordeones y Bloques Colapsables</h4>
+          <p>Para manuales interactivos con explicaciones extensas de código, puedes utilizar el elemento HTML <code>&lt;details&gt;</code> para ocultar información bajo un título desplegable:</p>
+          <pre><code>&lt;details&gt;
+  &lt;summary&gt;⚙️ Ver especificaciones técnicas&lt;/summary&gt;
+  Toda la conversión se realiza utilizando marked.js y purify.js locales.
+&lt;/details&gt;</code></pre>
+
+          <h3>Por Qué Elegir Markdify para tus Ediciones GFM</h3>
+          <p>El uso de un convertidor convencional de Markdown a PDF remoto expone tus borradores de negocio o bases de datos a filtraciones. Nuestra suite proporciona una solución definitiva al unificar la potencia del estándar <strong>GFM</strong> con el procesamiento 100% seguro del lado del cliente. Edita tus especificaciones de forma offline, aprovecha nuestras plantillas optimizadas para filtros ATS y descarga reportes vectoriales nítidos con la tranquilidad de que tus archivos nunca saldrán de tu computador. Te invitamos a probar nuestro <a href="../markdown-to-pdf.html">convertidor de markdown a pdf en línea gratis</a> para darles un aspecto espectacular a tus manuales.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- FOOTER SECTION & LEGAL LINKS -->
+    <footer id="main-footer">
+      <div class="footer-grid">
+        <!-- Columna 1: Branding -->
+        <div class="footer-col branding-col">
+          <div class="footer-logo">
+            <div class="logo-icon">M</div>
+            <span class="logo-text">Markdify</span>
+          </div>
+          <p class="branding-desc">Herramienta premium de Markdown local con procesamiento en el cliente y privacidad de datos absoluta.</p>
+          <div class="security-badge">
+            <span class="badge-icon">🛡️</span>
+            <span class="badge-text">Procesamiento 100% Local (RAM)</span>
+          </div>
+        </div>
+        
+        <!-- Columna 2: Herramientas -->
+        <div class="footer-col">
+          <h4>Herramientas</h4>
+          <ul class="footer-list">
+            <li><a href="../markdown-to-pdf.html"><span>⚡</span> Markdown a PDF Pro</a></li>
+          </ul>
+        </div>
+        
+        <!-- Columna 3: Blog & Recursos -->
+        <div class="footer-col">
+          <h4>Recursos & Guías</h4>
+          <ul class="footer-list">
+            <li><a href="guia-sintaxis-gfm.html"><span>💡</span> Sintaxis GFM Completa</a></li>
+            <li><a href="ia-a-pdf.html"><span>🤖</span> Reportes de IA a PDF</a></li>
+            <li><a href="cv-markdown.html"><span>📝</span> Hojas de Vida con Markdown</a></li>
+            <li><a href="privacidad-local.html"><span>🔒</span> Seguridad Client-Side</a></li>
+            <li><a href="salto-pagina-pdf.html"><span>📖</span> El Arte del Salto de Página</a></li>
+          </ul>
+        </div>
+        
+        <!-- Columna 4: Garantía de Privacidad -->
+        <div class="footer-col privacy-col">
+          <h4>Garantía Zero-Server</h4>
+          <div class="privacy-bullet">
+            <span class="bullet-dot"></span>
+            <p><strong>Cero Servidores Backend:</strong> Tu información sensible nunca viaja por internet ni se almacena externamente.</p>
+          </div>
+          <div class="privacy-bullet">
+            <span class="bullet-dot"></span>
+            <p><strong>Persistencia Segura:</strong> Los borradores residen exclusivamente en el localStorage de tu navegador.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Markdify &mdash; Open Source bajo licencia MIT</p>
+        <div class="footer-bottom-links">
+          <a href="https://github.com/LuisDavidTF/markdify" target="_blank" rel="noopener">GitHub</a>
+          <span class="sep">&middot;</span>
+          <a href="../privacy.html">Privacidad</a>
+          <span class="sep">&middot;</span>
+          <a href="../index.html">Herramientas</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Javascript entry application (Vite serves it modularly) -->
+  <script type="module" src="../src/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "markdify",
+  "version": "1.0.0",
+  "description": "Convertidor de Markdown a PDF 100% local y gratuito con soporte GFM, plantillas ATS y privacidad absoluta",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "markdown",
+    "pdf",
+    "developer-tools",
+    "editor",
+    "local-processing"
+  ],
+  "author": "Luis Ángel",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.2.0"
+  }
+}

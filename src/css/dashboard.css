@@ -1,0 +1,495 @@
+/* ==========================================================================
+   LANDING DASHBOARD & BLOG STYLINGS (dashboard.css)
+   ========================================================================== */
+
+/* Tools Dashboard Section */
+.tools-dashboard-section {
+  max-width: 1200px;
+  margin: 64px auto 48px auto;
+  padding: 0 32px;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.suite-tag {
+  background: var(--accent-success-bg);
+  color: var(--accent-success);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.dashboard-header h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dashboard-header p {
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Redesigned Premium Cards Layout focusing on active Tools */
+.tools-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Focuses heavily on our star tool! */
+  max-width: 800px;
+  margin: 0 auto 56px auto;
+}
+
+.tool-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 44px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 36px;
+  position: relative;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.tool-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.05) 0%, rgba(255,255,255,0) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  pointer-events: none;
+}
+
+.tool-card:hover::before {
+  opacity: 1;
+}
+
+.tool-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg), 0 0 24px var(--accent-glow);
+}
+
+.tool-card-status {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: var(--radius-xs);
+  letter-spacing: 0.8px;
+  background-color: var(--accent-success-bg);
+  color: var(--accent-success);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.tool-card-icon {
+  font-size: 3.5rem;
+  background-color: var(--bg-input);
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast);
+}
+
+.tool-card:hover .tool-card-icon {
+  transform: scale(1.08) rotate(4deg);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-hover);
+}
+
+.tool-card-content {
+  flex: 1;
+}
+
+.tool-card h3 {
+  font-size: 1.6rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  font-weight: 800;
+  font-family: var(--font-heading);
+}
+
+.tool-card p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  max-width: 480px;
+}
+
+.tool-card-action {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap var(--transition-fast);
+}
+
+.tool-card:hover .tool-card-action {
+  color: var(--accent-hover);
+  gap: 10px;
+}
+
+/* ==========================================================================
+   BLOG-FIRST SECTION (FOR HIGH VALUE SEO & AD REVENUE)
+   ========================================================================== */
+.blog-intro-hero {
+  max-width: 900px;
+  margin: 64px auto 0 auto;
+  padding: 48px 32px 16px 32px;
+  text-align: center;
+}
+
+.blog-intro-hero h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent-hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.blog-intro-hero p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.blog-section-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 32px 80px 32px;
+}
+
+.blog-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-bottom: 80px;
+}
+
+/* Blog Post Card with Glassmorphic Elements */
+.blog-post-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+.blog-post-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.blog-card-meta {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent);
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.blog-post-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.blog-post-card p {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.blog-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   FULL READABLE SEO ARTICLES SECTION
+   ========================================================================== */
+.article-detail-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 32px 80px 32px;
+}
+
+.article-container {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 56px;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 64px;
+}
+
+.article-header {
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 24px;
+}
+
+.article-header .category {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent);
+  letter-spacing: 1.5px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.article-header h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.article-header .meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.article-body {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.article-body p {
+  margin-bottom: 24px;
+}
+
+.article-body h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin: 40px 0 16px 0;
+}
+
+.article-body h4 {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin: 28px 0 12px 0;
+}
+
+.article-body blockquote {
+  border-left: 4px solid var(--accent);
+  background-color: var(--bg-input);
+  padding: 16px 24px;
+  margin: 32px 0;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-style: italic;
+}
+
+.article-body blockquote p {
+  margin-bottom: 0;
+  color: var(--text-primary);
+}
+
+.article-body ul, .article-body ol {
+  margin-bottom: 24px;
+  padding-left: 24px;
+}
+
+.article-body li {
+  margin-bottom: 10px;
+}
+
+.article-body code {
+  font-family: var(--font-mono);
+  background-color: var(--bg-input);
+  color: var(--accent-hover);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.article-body pre {
+  background-color: var(--bg-sidebar);
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+  margin: 32px 0;
+}
+
+.article-body pre code {
+  background-color: transparent;
+  padding: 0;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN FOR DASHBOARD & BLOG
+   ========================================================================== */
+@media (max-width: 900px) {
+  .dashboard-header h2 {
+    font-size: 2.2rem;
+  }
+  
+  .tool-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px;
+    gap: 24px;
+  }
+  
+  .tool-card-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 2.8rem;
+  }
+  
+  .article-container {
+    padding: 32px;
+  }
+  
+  .article-header h2 {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tools-dashboard-section {
+    padding: 0 16px;
+    margin-top: 40px;
+  }
+  
+  .blog-intro-hero {
+    padding: 32px 16px 8px 16px;
+  }
+  
+  .blog-intro-hero h2 {
+    font-size: 1.8rem;
+  }
+  
+  .blog-section-wrapper {
+    padding: 16px 16px 48px 16px;
+  }
+  
+  .article-detail-section {
+    padding: 0 16px 48px 16px;
+  }
+  
+  .tool-card-status {
+    top: 16px;
+    right: 16px;
+    font-size: 0.65rem;
+  }
+}
+
+/* Blog Categories Selector Tabs */
+.blog-categories-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 auto 48px auto;
+  max-width: 800px;
+  padding: 0 16px;
+}
+
+.category-tab-btn {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 10px 20px;
+  font-family: var(--font-heading);
+  font-size: 0.84rem;
+  font-weight: 700;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  user-select: none;
+}
+
+.category-tab-btn:hover {
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.category-tab-btn.active {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 0 16px var(--accent-glow);
+}
+
+/* Smooth filtering card animation transitions */
+.blog-post-card {
+  transition: opacity 0.3s ease, transform 0.3s ease, border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.blog-post-card.hidden {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  overflow: hidden;
+}
