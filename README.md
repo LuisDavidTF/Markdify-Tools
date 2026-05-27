@@ -62,12 +62,13 @@ markdify/
 ├── index.html              # Landing page con blog categorizado
 ├── markdown-to-pdf.html    # Editor principal de Markdown a PDF
 ├── privacy.html            # Política de privacidad
-├── blog/                   # Artículos SEO individuales
+├── blog/                   # Artículos SEO (20 artículos de investigación profunda)
 │   ├── guia-sintaxis-gfm.html
 │   ├── ia-a-pdf.html
 │   ├── cv-markdown.html
 │   ├── privacidad-local.html
-│   └── salto-pagina-pdf.html
+│   ├── salto-pagina-pdf.html
+│   └── ... (20 artículos totales estructurados para SEO y AdSense)
 ├── src/
 │   ├── css/
 │   │   ├── variables.css   # Tokens HSL (paleta de colores, espaciado)
@@ -84,8 +85,8 @@ markdify/
 │       ├── pdf.js          # Exportación html2pdf y print nativo
 │       ├── theme.js        # Sistema de temas claro/oscuro
 │       └── templates.js    # Plantillas de trabajo (CV, informe, etc.)
-├── public/                 # Assets estáticos (logo, og-image)
-├── vite.config.js          # Multi-page build con 8 entry points
+├── public/                 # Assets estáticos (logo, og-image, sitemap, robots)
+├── vite.config.js          # Multi-page build con 23 entry points
 └── package.json
 ```
 
