@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- Primary SEO Tags -->
-  <title>Privacidad Local: Por Qué el Procesamiento Client-Side es Vital | Markdify</title>
-  <meta name="description" content="Descubre los riesgos de subir borradores confidenciales a servidores externos y por qué el procesamiento local en la RAM del navegador es la mejor opción de seguridad.">
-  <meta name="keywords" content="procesamiento local navegador, privacidad datos convertidor online, seguridad informacion, markdify">
+  <title>La Especificación de GitHub Flavored Markdown (GFM): Arquitectura y Cumplimiento | Markdify</title>
+  <meta name="description" content="Un análisis técnico y profundo de la especificación GFM (GitHub Flavored Markdown), su relación con CommonMark, la seguridad contra inyecciones y su arquitectura de parsing.">
+  <meta name="keywords" content="especificacion gfm, github flavored markdown, commonmark rfc, markdown parse engine, markdify">
   <meta name="author" content="Markdify Tools">
   <meta name="robots" content="index, follow">
 
@@ -45,38 +45,55 @@
     <section class="article-detail-section" style="margin-top: 48px; margin-bottom: 64px;">
       <article class="article-container">
         <div class="article-header">
-          <span class="category">Seguridad de la Información</span>
-          <h1>Privacidad Local: Por Qué el Procesamiento Client-Side es Vital</h1>
-          <div class="meta">Publicado por Luis David | 25 de Mayo, 2026</div>
+          <span class="category">Sintaxis & GFM</span>
+          <h1>La Especificación de GitHub Flavored Markdown (GFM): Historia, Arquitectura y Cumplimiento de CommonMark</h1>
+          <div class="meta">Publicado por Luis David | 27 de Mayo, 2026</div>
         </div>
         <div class="article-body">
-          <p>En la era digital moderna, la seguridad de la información corporativa y personal se ha convertido en un tema crítico. Diariamente, millones de usuarios utilizan herramientas en línea para convertir formatos de archivos, optimizar imágenes o formatear código. Sin embargo, existe una verdad incómoda sobre estos servicios gratuitos: **¿Qué pasa con los archivos y textos que subes a sus plataformas?**</p>
-          
-          <p>Muchos convertidores convencionales operan bajo un modelo de procesamiento en servidor (Server-Side). Esto implica que cuando subes un archivo `.md` o pegas un texto confidencial (como informes financieros, patentes en desarrollo, planes estratégicos o datos personales en un CV), esa información viaja a través de internet hasta almacenarse en discos duros de terceros.</p>
-          
+          <p>Markdown, creado en 2004 por John Gruber con aportes significativos de Aaron Swartz, se concibió originalmente como una sintaxis de marcado ultra-ligera y legible. Sin embargo, su éxito masivo trajo una consecuencia inevitable: la fragmentación. Diversos parsers interpretaban el mismo documento de formas sutilmente distintas. Para solucionar esto, un comité técnico lanzó en 2014 **CommonMark**, una especificación rigurosa con un estándar inequívoco.</p>
+
+          <p>GitHub, que basaba todo su ecosistema de comunicación e incidencias en Markdown, adoptó este estándar e introdujo **GitHub Flavored Markdown (GFM)** en 2017. GFM no es un reemplazo de CommonMark, sino un *superconjunto* (superset) estricto. Esto significa que cualquier archivo que cumpla con CommonMark compila exactamente igual bajo GFM, pero GFM añade extensiones indispensables para la ingeniería y la gestión de proyectos.</p>
+
           <blockquote>
-            <p><strong>El riesgo de fuga de datos:</strong> Si el servidor del tercero sufre una brecha de seguridad, tus documentos privados podrían quedar expuestos al público o ser utilizados de forma indebida.</p>
+            <p><strong>El Núcleo del Estándar:</strong> GFM extiende la especificación CommonMark añadiendo soporte formal para tablas, listas de tareas, enlaces web automáticos (autolinks), tachados y filtrado estricto de etiquetas HTML maliciosas.</p>
           </blockquote>
 
-          <h3>La Solución: Arquitectura Client-Side (Procesamiento en Navegador)</h3>
-          <p>Para resolver este riesgo crítico de seguridad, nuestra plataforma ha sido diseñada bajo una arquitectura **100% Client-Side** (del lado del cliente). Esto significa que el procesamiento se ejecuta estrictamente en la memoria RAM y el procesador de tu propio computador o teléfono celular.</p>
-          
-          <h4>¿Cómo funciona técnicamente?</h4>
-          <ul>
-            <li><strong>Cero Transmisión de Contenido:</strong> Cuando pegas texto Markdown en nuestro editor, no se envía ninguna petición HTTP Post con tu texto a ningún servidor de internet.</li>
-            <li><strong>Librerías Locales de Compilación:</strong> Integrando scripts modernos como <code>marked.js</code> y <code>DOMPurify</code> directamente en el navegador, el texto se parsea e higieniza localmente.</li>
-            <li><strong>Generación de PDF Segura:</strong> La biblioteca <code>html2pdf.js</code> captura los elementos del árbol DOM local y ensambla el documento binario PDF en la memoria del navegador, forzando la descarga del archivo resultante sin salir de tu entorno local.</li>
-          </ul>
-
-          <h3>Ventajas de las Herramientas Web con Procesamiento Local</h3>
-          <p>Además de la protección total a la privacidad, la arquitectura client-side ofrece enormes ventajas operativas:</p>
+          <h3>Arquitectura de Parsing de GFM: Las Dos Fases Críticas</h3>
+          <p>Los motores modernos de Markdown que procesan GFM, como **Marked.js** en su especificación de cumplimiento, operan siguiendo un proceso estricto de dos fases:</p>
           <ol>
-            <li><strong>Velocidad Instantánea:</strong> Al no depender de la velocidad de subida de tu conexión a internet ni de tiempos de cola en un servidor remoto saturado, el renderizado de tu PDF toma menos de un segundo.</li>
-            <li><strong>Compatibilidad Offline:</strong> Una vez cargada la página por primera vez, puedes desconectarte de internet por completo y la herramienta de conversión continuará funcionando perfectamente sin conexión a la red.</li>
-            <li><strong>Cero Infraestructura de Coste:</strong> Al ejecutarse en el hardware del cliente, no requerimos mantener costosos servidores backend, permitiendo ofrecer un servicio de calidad premium gratuito de por vida.</li>
+            <li><strong>Fase de Análisis de Bloque (Block Parsing):</strong> El motor analiza el documento línea por línea para segmentar la estructura jerárquica primaria. Identifica bloques de código (code fences), encabezados (`#`), blockquotes y tablas. En esta etapa se construye el Árbol de Sintaxis Abstracta (AST).</li>
+            <li><strong>Fase de Análisis en Línea (Inline Parsing):</strong> Con el AST ya estructurado, el motor vuelve a escanear los nodos de texto para aplicar estilos de nivel de carácter. Resuelve negritas, cursivas, enlaces implícitos y etiquetas `<kbd>`.</li>
           </ol>
-          
-          <p>Adoptar herramientas de procesamiento local no es solo una elección técnica inteligente; es una política de autoprotección digital indispensable para profesionales modernos. Te invitamos a usar nuestro <a href="../markdown-to-pdf.html">convertidor de markdown a pdf local 100% privado</a> para redactar tus documentos con total tranquilidad.</p>
+
+          <h3>Las Extensiones Clave de GFM Frente a CommonMark</h3>
+          <p>Para comprender por qué GFM es el lenguaje de facto en la documentación técnica, examinemos sus cuatro extensiones fundamentales y su sintaxis formal:</p>
+
+          <h4>1. Tablas Bidimensionales con Alineación de Datos</h4>
+          <p>CommonMark original no contemplaba tablas. GFM lo resuelve de forma elegante usando barras verticales y filas delimitadoras con dos puntos:</p>
+          <pre><code>| Parámetro | Tipo | Requerido |
+| :--- | :---: | ---: |
+| `src` | String | Sí |
+| `scale` | Float | Opcional |</code></pre>
+
+          <h4>2. Listas de Tareas (Task Lists / Checklists)</h4>
+          <p>GFM convierte los corchetes vacíos u ocupados con una equis (`x`) en elementos de casilla interactivos, ampliamente utilizados en minutas ágiles:</p>
+          <pre><code>- [x] Corrección de vulnerabilidades XSS
+- [ ] Ejecutar compilación de producción con pnpm</code></pre>
+
+          <h4>3. Autovínculos Automáticos (Autolinks)</h4>
+          <p>A diferencia del marcado básico, GFM reconoce direcciones URL válidas (como `https://markdify.tech`) y correos electrónicos de forma nativa en el flujo de texto sin necesidad de envolverlos en la sintaxis habitual `[texto](url)`.</p>
+
+          <h3>Seguridad Contra Inyecciones HTML en GFM</h3>
+          <p>Debido a que Markdown permite inyectar código HTML crudo para ofrecer mayor flexibilidad, los parsers de GFM implementan medidas de seguridad estrictas. El estándar oficial de GitHub define políticas de sanitización agresivas para neutralizar vulnerabilidades de Cross-Site Scripting (XSS). Sin embargo, para entornos de producción offline y locales, se recomienda complementar el parsing de GFM con herramientas dedicadas basadas en árbol DOM como **DOMPurify**, asegurando que scripts maliciosos o exploits inyectados mediante esquemas `javascript:` en atributos de enlaces sean completamente inertes antes de ser añadidos al DOM activo.</p>
+
+          <h3>Referencias Oficiales</h3>
+          <div class="references-box">
+            <ul>
+              <li><strong>GitHub Engineering:</strong> <a href="https://github.github.com/gfm/" target="_blank" rel="noopener">GitHub Flavored Markdown Spec (v0.29.0)</a></li>
+              <li><strong>CommonMark Org:</strong> <a href="https://spec.commonmark.org/" target="_blank" rel="noopener">CommonMark Academic Specification (RFC 7763)</a></li>
+              <li><strong>IETF Tools:</strong> <a href="https://datatracker.ietf.org/doc/html/rfc7763" target="_blank" rel="noopener">RFC 7763: The text/markdown Media Type</a></li>
+            </ul>
+          </div>
         </div>
       </article>
     </section>

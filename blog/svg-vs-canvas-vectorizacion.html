@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Tags -->
+  <title>SVG vs. Canvas: Comparativa Técnica de Vectorización | Markdify</title>
+  <meta name="description" content="Análisis técnico comparativo entre la arquitectura SVG (Scalable Vector Graphics) y HTML5 Canvas para renderizado web y exportación digital de gráficos.">
+  <meta name="keywords" content="svg vs canvas performance, scalable vector graphics browser, html5 canvas bit map rendering, web layout resolution scaling, markdify">
+  <meta name="author" content="Markdify Tools">
+  <meta name="robots" content="index, follow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%25%22 stop-color=%22%238B5CF6%22/%3E%3Cstop offset=%22100%25%22 stop-color=%22%23D946EF%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%230A0F1E%22/%3E%3Ctext y=%22.85em%22 font-size=%2272%22 x=%2214%22 fill=%22url(%23g)%22 font-family=%22system-ui,sans-serif%22 font-weight=%22800%22%3EM%3C/text%3E%3C/svg%3E">
+
+  <!-- Custom Design Stylesheet Aggregator -->
+  <link rel="stylesheet" href="../src/css/style.css">
+</head>
+<body>
+
+  <div id="app-container">
+    
+    <!-- STICKY HEADER -->
+    <header id="main-header">
+      <div class="logo-section">
+        <a href="../index.html" class="logo-icon" style="text-decoration: none;">M</a>
+        <div class="logo-title">
+          <span class="logo-title-heading" style="cursor: pointer;" onclick="window.location.href='../index.html'">Markdify</span>
+          <span>Blog Técnico & Guías</span>
+        </div>
+      </div>
+      
+      <div class="actions-section">
+        <a href="../markdown-to-pdf.html" class="btn btn-primary">Abrir Editor Pro</a>
+        
+        <!-- Theme Toggle Switch -->
+        <button class="theme-toggle-btn" id="btn-toggle-theme" aria-label="Cambiar Tema" title="Cambiar Tema (Claro / Oscuro)">
+          <svg viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- ARTICLE BODY CONTAINER -->
+    <section class="article-detail-section" style="margin-top: 48px; margin-bottom: 64px;">
+      <article class="article-container">
+        <div class="article-header">
+          <span class="category">Desarrollo & Rendimiento</span>
+          <h1>Vectorización en la Web: Comparativa Técnica entre SVG (Scalable Vector Graphics) y Elementos Canvas para la Exportación de Gráficos de Alta Fidelidad</h1>
+          <div class="meta">Publicado por Luis David | 27 de Mayo, 2026</div>
+        </div>
+        <div class="article-body">
+          <p>Para maquetar y procesar interfaces visuales ricas en la web moderna, los desarrolladores disponen de dos herramientas potentes recomendadas por la W3C para pintar y manipular elementos gráficos de forma programática: **SVG (Scalable Vector Graphics)** y el elemento **HTML5 Canvas**. Ambos permiten dibujar formas geométricas, textos, gradientes y trazados, pero sus principios de diseño arquitectónico y de renderizado son diametralmente opuestos.</p>
+
+          <p>La selección correcta de uno u otro influye críticamente en el consumo de memoria del sistema, el rendimiento en dispositivos móviles y la nitidez de exportación digital (especialmente al compilar documentos PDF nítidos en **Markdify**). Analizar ambos modelos a nivel de ingeniería web ayuda a tomar decisiones arquitectónicas de alto rendimiento.</p>
+
+          <blockquote>
+            <p><strong>La Diferencia Filosófica Básica:</strong> SVG es un modelo de dibujo **basado en objetos vectoriales (DOM-retained)**, donde cada forma dibujada es un nodo HTML real indexable. HTML5 Canvas es un modelo de dibujo **inmediato y destructivo (pixel-buffer)**, donde las instrucciones pintan píxeles directamente sobre un tapiz de mapa de bits plano.</p>
+          </blockquote>
+
+          <h3>1. Arquitectura de SVG: Vectores Matemáticos Puros</h3>
+          <p>SVG (estandarizado bajo la norma W3C SVG 2) describe imágenes mediante código XML estructurado. Un círculo en SVG es una descripción matemática precisa: `&lt;circle cx="50" cy="50" r="40" fill="red" /&gt;`. Debido a esta naturaleza, SVG cuenta con características singulares:</p>
+          <ul>
+            <li><strong>Escalabilidad Infinita Reales:</strong> Al basarse en fórmulas vectoriales, los gráficos SVG se adaptan de forma fluida a cualquier nivel de zoom o densidad de pantalla (como pantallas Retina o 4K) sin perder un solo ápice de nitidez o pixelarse.</li>
+            <li><strong>Estilado con CSS e Interactividad:</strong> Dado que cada elemento es parte del DOM web ordinario, los desarrolladores pueden interactuar con los trazados vectoriales SVG usando pseudoclases CSS (`:hover`) o manipulando eventos directamente con JavaScript (`addEventListener`).</li>
+            <li><strong>Rendimiento Acotado a la Complejidad del DOM:</strong> Un número masivo de elementos vectoriales en un único gráfico (por ejemplo, 10,000 partículas en movimiento) creará 10,000 nodos DOM adicionales, disparando el uso de CPU durante los procesos de cálculo de diseño (Reflow/Repaint) del navegador.</li>
+          </ul>
+
+          <h3>2. Arquitectura de HTML5 Canvas: La Matriz de Píxeles Inmediata</h3>
+          <p>El elemento Canvas define un área rectangular configurable mediante una API de contexto en JavaScript (`getContext('2d')`). A diferencia de SVG, dibujar un círculo en Canvas implica ejecutar comandos secuenciales que modifican directamente un búfer de datos de color en la memoria RAM:</p>
+
+          <pre><code>// Dibujo síncrono sobre búfer de mapa de bits en Canvas:
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+ctx.beginPath();
+ctx.arc(50, 50, 40, 0, 2 * Math.PI);
+ctx.fillStyle = 'red';
+ctx.fill();</code></pre>
+
+          <p>Una vez ejecutada la última instrucción `ctx.fill()`, el navegador dibuja los píxeles rojos en su matriz y el círculo como entidad matemática deja de existir. El navegador ya no sabe que hay un "círculo", solo sabe que hay píxeles rojos en ciertas coordenadas.</p>
+
+          <ul>
+            <li><strong>Rendimiento Óptimo para Dinamismo Masivo:</strong> Al no poblar el DOM con miles de nodos independientes, Canvas procesa animaciones de alta velocidad o sistemas de partículas masivas con una sobrecarga de CPU mínima.</li>
+            <li><strong>Falta de Interactividad Individual Directa:</strong> Si deseas saber si un usuario hizo clic en la forma dibujada en el Canvas, debes programar un motor de cálculo de coordenadas manual (`isPointInPath`) en base a la posición espacial del ratón.</li>
+            <li><strong>Dependencia Estricta de la Resolución:</strong> Si duplicas el tamaño de visualización de un Canvas plano en CSS sin duplicar su resolución física interna en JavaScript, el mapa de bits se estirará artificialmente perdiendo nitidez (efecto borroso).</li>
+          </ul>
+
+          <h3>Aplicación en la Generación de PDFs en Markdify</h3>
+          <p>En **Markdify**, las dos arquitecturas coexisten de manera brillante. Para las representaciones gráficas del editor web (iconos premium y logotipos dinámicos), implementamos **SVG puro** para garantizar una estética premium fluida en el tema claro y oscuro automáticamente. Para la conversión física del documento Markdown completo a PDF Carta o A4 local, inyectamos el HTML renderizado a través de un motor Canvas intermedio escalado al doble de densidad de píxeles (`devicePixelRatio: 2`), asegurando que las fuentes y vectores se compriman en el PDF sin deformaciones.</p>
+
+          <h3>Referencias Oficiales</h3>
+          <div class="references-box">
+            <ul>
+              <li><strong>W3C SVG Working Group:</strong> <a href="https://www.w3.org/TR/SVG2/" target="_blank" rel="noopener">W3C Scalable Vector Graphics (SVG) 2 Specification</a></li>
+              <li><strong>WHATWG Canvas Spec:</strong> <a href="https://html.spec.whatwg.org/multipage/canvas.html" target="_blank" rel="noopener">WHATWG HTML Canvas Element Standard Specification</a></li>
+              <li><strong>Google Web Performance:</strong> <a href="https://web.dev/articles/gpu-accelerated-compositing-in-chrome" target="_blank" rel="noopener">GPU-Accelerated Compositing and Rendering Pipelines in Chrome</a></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- FOOTER SECTION & LEGAL LINKS -->
+    <footer id="main-footer">
+      <div class="footer-grid">
+        <!-- Columna 1: Branding -->
+        <div class="footer-col branding-col">
+          <div class="footer-logo">
+            <div class="logo-icon">M</div>
+            <span class="logo-text">Markdify</span>
+          </div>
+          <p class="branding-desc">Herramienta premium de Markdown local con procesamiento en el cliente y privacidad de datos absoluta.</p>
+          <div class="security-badge">
+            <span class="badge-icon">🛡️</span>
+            <span class="badge-text">Procesamiento 100% Local (RAM)</span>
+          </div>
+        </div>
+        
+        <!-- Columna 2: Herramientas -->
+        <div class="footer-col">
+          <h4>Herramientas</h4>
+          <ul class="footer-list">
+            <li><a href="../markdown-to-pdf.html"><span>⚡</span> Markdown a PDF Pro</a></li>
+          </ul>
+        </div>
+        
+        <!-- Columna 3: Blog & Recursos -->
+        <div class="footer-col">
+          <h4>Recursos & Guías</h4>
+          <ul class="footer-list">
+            <li><a href="guia-sintaxis-gfm.html"><span>💡</span> Sintaxis GFM Completa</a></li>
+            <li><a href="ia-a-pdf.html"><span>🤖</span> Reportes de IA a PDF</a></li>
+            <li><a href="cv-markdown.html"><span>📝</span> Hojas de Vida con Markdown</a></li>
+            <li><a href="privacidad-local.html"><span>🔒</span> Seguridad Client-Side</a></li>
+            <li><a href="salto-pagina-pdf.html"><span>📖</span> El Arte del Salto de Página</a></li>
+          </ul>
+        </div>
+        
+        <!-- Columna 4: Garantía de Privacidad -->
+        <div class="footer-col privacy-col">
+          <h4>Garantía Zero-Server</h4>
+          <div class="privacy-bullet">
+            <span class="bullet-dot"></span>
+            <p><strong>Cero Servidores Backend:</strong> Tu información sensible nunca viaja por internet ni se almacena externamente.</p>
+          </div>
+          <div class="privacy-bullet">
+            <span class="bullet-dot"></span>
+            <p><strong>Persistencia Segura:</strong> Los borradores residen exclusivamente en el localStorage de tu navegador.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Markdify &mdash; Open Source bajo licencia MIT</p>
+        <div class="footer-bottom-links">
+          <a href="https://github.com/LuisDavidTF/markdify" target="_blank" rel="noopener">GitHub</a>
+          <span class="sep">&middot;</span>
+          <a href="../privacy.html">Privacidad</a>
+          <span class="sep">&middot;</span>
+          <a href="../index.html">Herramientas</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Javascript entry application (Vite serves it modularly) -->
+  <script type="module" src="../src/js/main.js"></script>
+</body>
+</html>
