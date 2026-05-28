@@ -1,6 +1,7 @@
 /* ==========================================================================
    APPLICATION AGGREGATOR & ORCHESTRATOR ENTRY POINT (main.js)
    ========================================================================== */
+import './analytics.js';
 import { initTheme, toggleTheme } from './theme.js';
 import { templates } from './templates.js';
 import { downloadLocalPdf, printPhysicalPdf } from './pdf.js';

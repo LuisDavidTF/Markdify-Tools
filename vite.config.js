@@ -8,6 +8,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         editor: resolve(__dirname, 'markdown-to-pdf.html'),
         privacy: resolve(__dirname, 'privacy.html'),
+        terms: resolve(__dirname, 'terms.html'),
         blog_ia: resolve(__dirname, 'blog/ia-a-pdf.html'),
         blog_cv: resolve(__dirname, 'blog/cv-markdown.html'),
         blog_privacidad: resolve(__dirname, 'blog/privacidad-local.html'),
