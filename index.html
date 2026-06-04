@@ -23,6 +23,29 @@
 
   <!-- Custom Design Stylesheet Aggregator -->
   <link rel="stylesheet" href="src/css/style.css">
+
+  <!-- JSON-LD Structured Data for Website & WebApplication SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Markdify",
+    "url": "https://markdify.tech/",
+    "description": "El mejor visor de markdown en línea y convertidor a PDF 100% local. Edita, previsualiza y convierte GFM (GitHub Flavored Markdown) a PDF Carta o A4 gratis y de forma segura.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "author": {
+      "@type": "Organization",
+      "name": "Markdify Tools"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -66,6 +89,17 @@
           <div class="tool-card-content">
             <h3>Markdown a PDF Pro</h3>
             <p>Escribe o pega tus documentos en formato Markdown con renderizado interactivo en tiempo real y descarga documentos PDF con maquetación Carta/A4 perfectas y tipografía vectorial nítida.</p>
+            <span class="tool-card-action">Iniciar Herramienta &rarr;</span>
+          </div>
+        </a>
+
+        <!-- PDF a Markdown Local Card -->
+        <a href="pdf-to-markdown.html" class="tool-card">
+          <div class="tool-card-status">Activo</div>
+          <div class="tool-card-icon">📂</div>
+          <div class="tool-card-content">
+            <h3>PDF a Markdown</h3>
+            <p>Extrae y convierte tus archivos PDF a documentos Markdown limpios de forma 100% local en tu navegador. Reconstruye títulos, listas, párrafos y tablas con total privacidad.</p>
             <span class="tool-card-action">Iniciar Herramienta &rarr;</span>
           </div>
         </a>
@@ -311,6 +345,72 @@
           </div>
         </a>
 
+        <!-- Card 21 -->
+        <a href="blog/w3c-dom-sanitizer-api-seguridad.html" class="blog-post-card" data-category="security">
+          <span class="blog-card-meta">Seguridad Local</span>
+          <h3>W3C DOM Sanitizer API: Seguridad y Sanitización HTML5 Nativa</h3>
+          <p>Aprende cómo la nueva API W3C DOM Sanitizer mitiga ataques XSS nativamente en el navegador sin depender de librerías externas o expresiones regulares peligrosas.</p>
+          <div class="blog-card-footer">
+            <span>Por Luis David</span>
+            <span>Lectura: 5 min</span>
+          </div>
+        </a>
+
+        <!-- Card 22 -->
+        <a href="blog/compilacion-swc-rust-ast-navegador.html" class="blog-post-card" data-category="webdev">
+          <span class="blog-card-meta">Desarrollo & Rendimiento</span>
+          <h3>Compilación SWC con Rust en Navegadores: Optimización del AST</h3>
+          <p>Análisis técnico de SWC, el transpilador escrito en Rust. Conoce cómo procesa árboles de sintaxis abstracta (AST) en el navegador usando WebAssembly.</p>
+          <div class="blog-card-footer">
+            <span>Por Luis David</span>
+            <span>Lectura: 6 min</span>
+          </div>
+        </a>
+
+        <!-- Card 23 -->
+        <a href="blog/html5-canvas-seguridad-fingerprinting.html" class="blog-post-card" data-category="security">
+          <span class="blog-card-meta">Seguridad Local</span>
+          <h3>HTML5 Canvas Security: Mitigación de Browser Fingerprinting</h3>
+          <p>Guía técnica sobre la seguridad en HTML5 Canvas. Aprende a mitigar el browser fingerprinting y a solucionar errores de Tainted Canvas causados por CORS.</p>
+          <div class="blog-card-footer">
+            <span>Por Luis David</span>
+            <span>Lectura: 6 min</span>
+          </div>
+        </a>
+
+        <!-- Card 24 -->
+        <a href="blog/webassembly-memoria-rendimiento-v8.html" class="blog-post-card" data-category="webdev">
+          <span class="blog-card-meta">Desarrollo & Rendimiento</span>
+          <h3>V8 Engine WebAssembly Memory Model: Aislamiento Lineal</h3>
+          <p>Conoce cómo el motor V8 de Google administra la memoria lineal reservada para WebAssembly y cómo el sandbox de WASM garantiza seguridad y rendimiento.</p>
+          <div class="blog-card-footer">
+            <span>Por Luis David</span>
+            <span>Lectura: 7 min</span>
+          </div>
+        </a>
+
+        <!-- Card 25 -->
+        <a href="blog/mozilla-readability-heuristica-extraccion-contenido.html" class="blog-post-card" data-category="cases">
+          <span class="blog-card-meta">Inteligencia Artificial</span>
+          <h3>Mozilla Readability: Algoritmos de Extracción Heurística DOM</h3>
+          <p>Entiende el algoritmo de Mozilla Readability.js. Aprende a extraer el contenido relevante del DOM y convertir artículos web sucios a texto limpio en local.</p>
+          <div class="blog-card-footer">
+            <span>Por Luis David</span>
+            <span>Lectura: 6 min</span>
+          </div>
+        </a>
+
+        <!-- Card 26 -->
+        <a href="blog/pdf-referencia-iso-32000-maquetacion.html" class="blog-post-card" data-category="syntax">
+          <span class="blog-card-meta">Sintaxis & GFM</span>
+          <h3>Norma ISO 32000-2 (PDF 2.0): Arquitectura de Maquetación</h3>
+          <p>Explora la especificación ISO 32000-2 para PDF 2.0. Conoce las reglas de maquetación semántica y la estructura física para PDFs de alta calidad y accesibles.</p>
+          <div class="blog-card-footer">
+            <span>Por Luis David</span>
+            <span>Lectura: 8 min</span>
+          </div>
+        </a>
+
       </div>
     </div>    <!-- FOOTER SECTION & LEGAL LINKS -->
     <footer id="main-footer">
@@ -333,6 +433,7 @@
           <h4>Herramientas</h4>
           <ul class="footer-list">
             <li><a href="markdown-to-pdf.html"><span>⚡</span> Markdown a PDF Pro</a></li>
+            <li><a href="pdf-to-markdown.html"><span>📂</span> PDF a Markdown Local</a></li>
           </ul>
         </div>
         

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Tags -->
+  <title>Convertidor de PDF a Markdown en Línea y Local | Markdify</title>
+  <meta name="description" content="El mejor convertidor de PDF a Markdown en línea, 100% local y seguro. Extrae texto de tus PDFs, conservando títulos, listas y tablas directamente en tu navegador sin subir archivos.">
+  <meta name="keywords" content="convertidor de pdf a markdown, extraer texto de pdf, pdf a md gratis, conversor local pdf, privacidad de datos, marked pdf to md, pdf.js markdown">
+  <meta name="author" content="Markdify Tools">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://markdify.tech/pdf-to-markdown.html">
+  <meta property="og:title" content="Convertidor de PDF a Markdown Local y Seguro - Markdify">
+  <meta property="og:description" content="Extrae texto estructurado de tus archivos PDF y conviértelo a Markdown en tiempo real, de manera 100% local en tu memoria RAM.">
+  <meta property="og:image" content="https://markdify.tech/assets/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%25%22 stop-color=%22%238B5CF6%22/%3E%3Cstop offset=%22100%25%22 stop-color=%22%23D946EF%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%230A0F1E%22/%3E%3Ctext y=%22.85em%22 font-size=%2272%22 x=%2214%22 fill=%22url(%23g)%22 font-family=%22system-ui,sans-serif%22 font-weight=%22800%22%3EM%3C/text%3E%3C/svg%3E">
+
+  <!-- Custom Design Stylesheet Aggregator -->
+  <link rel="stylesheet" href="src/css/style.css">
+
+  <!-- CDN Script libraries (Marked parsing, DOMPurify sanitizing, PDF.js parsing) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.0/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.9/purify.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+</head>
+<body>
+
+  <div id="app-container">
+    
+    <!-- STICKY HEADER -->
+    <header id="main-header">
+      <div class="logo-section">
+        <a href="index.html" class="logo-icon" style="text-decoration: none;">M</a>
+        <div class="logo-title">
+          <span class="logo-title-heading" style="cursor: pointer;" onclick="window.location.href='index.html'" title="Volver al inicio">Markdify</span>
+          <span>Convertidor PDF a Markdown</span>
+        </div>
+      </div>
+      
+      <div class="actions-section">
+        <!-- Actions when file is loaded -->
+        <button class="btn btn-header-secondary hide-no-file" id="btn-copy-md" data-icon="📋" title="Copiar Markdown al Portapapeles">
+          <span>📋 Copiar</span>
+        </button>
+        <button class="btn btn-header-primary hide-no-file" id="btn-download-md" data-icon="📥" title="Descargar archivo .md">
+          <span>📥 Descargar MD</span>
+        </button>
+        
+        <!-- Theme switcher toggle button -->
+        <button class="theme-toggle-btn" id="btn-toggle-theme" aria-label="Cambiar Tema" title="Cambiar Tema (Claro / Oscuro)">
+          <svg viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- MOBILE TABS RESPONSIVE CONTROLLER -->
+    <div class="mobile-tabs-container hide-no-file">
+      <button class="mobile-tab-btn active" id="tab-btn-edit">Editar</button>
+      <button class="mobile-tab-btn" id="tab-btn-preview">Vista Previa</button>
+    </div>
+
+    <!-- MAIN APP BODY -->
+    <div class="app-body" id="app-workspace">
+      
+      <!-- STATE 1: UPLOAD STATE -->
+      <div class="upload-zone-wrapper" id="upload-state-view">
+        <div class="upload-zone" id="drop-zone">
+          <div class="upload-icon-container">📂</div>
+          <h3>Arrastra tu archivo PDF aquí</h3>
+          <p>o haz clic para explorar en tu equipo</p>
+          <span style="font-size: 0.72rem; color: var(--text-muted); margin-top: 14px; display: block;">Solo archivos PDF (Tamaño máx. 50MB)</span>
+          <input type="file" id="file-input" class="file-input-hidden" accept="application/pdf">
+        </div>
+        
+        <!-- Processing State (hidden initially) -->
+        <div class="processing-container" id="processing-view" style="display: none;">
+          <div class="progress-spinner"></div>
+          <h4 class="processing-title" id="processing-title">Procesando Documento...</h4>
+          <div class="progress-bar-wrapper">
+            <div class="progress-bar-fill" id="progress-bar"></div>
+          </div>
+          <span class="progress-percentage" id="progress-percent">0%</span>
+          
+          <!-- Terminal logs window -->
+          <div class="log-terminal-window" id="log-terminal">
+            <p class="log-line info">> Inicializando lector PDF client-side...</p>
+          </div>
+        </div>
+
+        <!-- Security and Info badges -->
+        <div class="upload-features-grid">
+          <div class="feature-badge">
+            <span class="feature-badge-icon">🛡️</span>
+            <h4>100% Local y Privado</h4>
+            <p>El archivo se procesa en tu navegador. Tus datos nunca viajan a servidores.</p>
+          </div>
+          <div class="feature-badge">
+            <span class="feature-badge-icon">⚡</span>
+            <h4>Heurística Inteligente</h4>
+            <p>Reconstruye títulos, listas, párrafos y tablas automáticamente.</p>
+          </div>
+          <div class="feature-badge">
+            <span class="feature-badge-icon">✍️</span>
+            <h4>Editor Integrado</h4>
+            <p>Modifica el resultado extraído directamente en la vista dividida en vivo.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATE 2: ACTIVE WORKSPACE (Hidden initially) -->
+      <!-- SIDEBAR -->
+      <aside class="sidebar hide-no-file" id="sidebar-menu" style="display: none;">
+        <button class="sidebar-close-btn" id="sidebar-close-btn" aria-label="Cerrar Ajustes">&times;</button>
+        
+        <div class="sidebar-section file-details-section">
+          <h3>Archivo Cargado</h3>
+          <div class="file-info-badge">
+            <span class="file-info-name" id="info-file-name">documento.pdf</span>
+            <div class="file-info-row">
+              <span>Tamaño:</span>
+              <span class="file-info-value" id="info-file-size">0 KB</span>
+            </div>
+            <div class="file-info-row">
+              <span>Páginas:</span>
+              <span class="file-info-value" id="info-file-pages">0</span>
+            </div>
+          </div>
+          <button class="btn btn-secondary btn-change-file" id="btn-reset-file" title="Cargar otro archivo PDF">
+            <span>📂 Cambiar Archivo</span>
+          </button>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Ajustes de Conversión</h3>
+          
+          <div class="switch-setting-item">
+            <div class="switch-label-group">
+              <span class="switch-title">Detectar Títulos</span>
+              <span class="switch-desc">Identifica títulos según tamaño relativo de letra</span>
+            </div>
+            <label class="switch-control">
+              <input type="checkbox" id="opt-detect-headings" checked>
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+
+          <div class="switch-setting-item">
+            <div class="switch-label-group">
+              <span class="switch-title">Unir Párrafos</span>
+              <span class="switch-desc">Reconstruye líneas consecutivas en párrafos</span>
+            </div>
+            <label class="switch-control">
+              <input type="checkbox" id="opt-smart-paragraphs" checked>
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+
+          <div class="switch-setting-item">
+            <div class="switch-label-group">
+              <span class="switch-title">Detectar Listas</span>
+              <span class="switch-desc">Identifica viñetas, guiones y numeración</span>
+            </div>
+            <label class="switch-control">
+              <input type="checkbox" id="opt-detect-lists" checked>
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+
+          <div class="switch-setting-item">
+            <div class="switch-label-group">
+              <span class="switch-title">Extraer Tablas</span>
+              <span class="switch-desc">Detecta celdas alineadas y crea tablas MD</span>
+            </div>
+            <label class="switch-control">
+              <input type="checkbox" id="opt-detect-tables" checked>
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+
+          <div class="switch-setting-item">
+            <div class="switch-label-group">
+              <span class="switch-title">Dividir Páginas</span>
+              <span class="switch-desc">Inserta separadores de página (`---`)</span>
+            </div>
+            <label class="switch-control">
+              <input type="checkbox" id="opt-page-separators" checked>
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+
+          <div class="switch-setting-item">
+            <div class="switch-label-group">
+              <span class="switch-title">Limpiar Espacios</span>
+              <span class="switch-desc">Elimina líneas vacías adicionales seguidas</span>
+            </div>
+            <label class="switch-control">
+              <input type="checkbox" id="opt-clean-lines" checked>
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- SIDEBAR FOOTER -->
+        <div class="sidebar-section sidebar-footer" style="padding: 20px 24px; border-top: 1px solid var(--border-color); font-size: 0.7rem; color: var(--text-muted); background: linear-gradient(to bottom, rgba(15,21,36,0), rgba(15,21,36,0.3));">
+          <div style="display: flex; gap: 14px; margin-bottom: 8px;">
+            <a href="index.html" class="sidebar-footer-link">Inicio</a>
+            <a href="privacy.html" class="sidebar-footer-link">Privacidad</a>
+          </div>
+          <p style="font-size: 0.65rem; line-height: 1.5; color: var(--text-muted); margin: 0;">Markdify Tools &copy; 2026<br>Procesamiento 100% en el cliente</p>
+        </div>
+      </aside>
+
+      <!-- Mobile backdrop -->
+      <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+      <!-- WORKSPACE PANELS -->
+      <main class="workspace-panels hide-no-file" id="workspace-panels-view" style="display: none; flex: 1;">
+        <!-- EDITOR PANEL -->
+        <section class="panel active" id="editor-panel">
+          <div class="panel-header">
+            <span>Markdown Extraído</span>
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <span id="char-count">0 caracteres | 0 palabras</span>
+              <button class="btn btn-danger" id="btn-clear-editor" style="padding: 4px 10px; font-size: 0.72rem;" title="Vaciar editor">
+                <span>Limpiar</span>
+              </button>
+            </div>
+          </div>
+          <div class="panel-content">
+            <textarea class="markdown-input" id="markdown-editor" placeholder="El texto convertido en Markdown aparecerá aquí. Puedes editarlo libremente..."></textarea>
+          </div>
+        </section>
+
+        <!-- SPLIT PANEL DRAG RESIZER -->
+        <div class="workspace-divider" id="panel-resizer"></div>
+
+        <!-- LIVE PREVIEW PANEL -->
+        <section class="panel" id="preview-panel">
+          <div class="panel-header">
+            <span>Vista Previa del Documento</span>
+            <span style="color: var(--accent-success); font-weight: 700;">En Vivo</span>
+          </div>
+          <div class="panel-content" style="padding: 24px;">
+            <div class="preview-container" style="background-color: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 32px; box-shadow: var(--shadow-sm); min-height: 100%;">
+              <div class="preview-content" id="markdown-preview">
+                <!-- Rendered HTML will load here -->
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+    </div>
+
+    <!-- MAIN FOOTER -->
+    <footer id="main-footer">
+      <div class="footer-grid">
+        <!-- Columna 1: Branding -->
+        <div class="footer-col branding-col">
+          <div class="footer-logo">
+            <div class="logo-icon">M</div>
+            <span class="logo-text">Markdify</span>
+          </div>
+          <p class="branding-desc">Herramientas locales premium de procesamiento de texto con privacidad absoluta y seguridad militar.</p>
+          <div class="security-badge">
+            <span class="badge-icon">🛡️</span>
+            <span class="badge-text">Procesamiento 100% Local (RAM)</span>
+          </div>
+        </div>
+        
+        <!-- Columna 2: Herramientas -->
+        <div class="footer-col">
+          <h4>Herramientas</h4>
+          <ul class="footer-list">
+            <li><a href="markdown-to-pdf.html"><span>⚡</span> Markdown a PDF Pro</a></li>
+            <li><a href="pdf-to-markdown.html"><span>📂</span> PDF a Markdown Local</a></li>
+          </ul>
+        </div>
+        
+        <!-- Columna 3: Blog & Recursos -->
+        <div class="footer-col">
+          <h4>Recursos & Guías</h4>
+          <ul class="footer-list">
+            <li><a href="blog/guia-sintaxis-gfm.html"><span>💡</span> Sintaxis GFM Completa</a></li>
+            <li><a href="blog/ia-a-pdf.html"><span>🤖</span> Reportes de IA a PDF</a></li>
+            <li><a href="blog/cv-markdown.html"><span>📝</span> Hojas de Vida con Markdown</a></li>
+            <li><a href="blog/privacidad-local.html"><span>🔒</span> Seguridad Client-Side</a></li>
+            <li><a href="blog/salto-pagina-pdf.html"><span>📖</span> El Arte del Salto de Página</a></li>
+          </ul>
+        </div>
+        
+        <!-- Columna 4: Garantía de Privacidad -->
+        <div class="footer-col privacy-col">
+          <h4>Garantía Zero-Server</h4>
+          <div class="privacy-bullet">
+            <span class="bullet-dot"></span>
+            <p><strong>Cero Servidores Backend:</strong> Tu información sensible nunca viaja por internet ni se almacena externamente.</p>
+          </div>
+          <div class="privacy-bullet">
+            <span class="bullet-dot"></span>
+            <p><strong>Procesamiento Local:</strong> Los archivos PDF cargados se decodifican localmente en memoria y se limpian al salir.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Markdify &mdash; Open Source bajo licencia MIT</p>
+        <div class="footer-bottom-links">
+          <a href="https://github.com/LuisDavidTF/markdify" target="_blank" rel="noopener">GitHub</a>
+          <span class="sep">&middot;</span>
+          <a href="privacy.html">Privacidad</a>
+          <span class="sep">&middot;</span>
+          <a href="terms.html">Términos</a>
+          <span class="sep">&middot;</span>
+          <a href="markdown-to-pdf.html">Herramientas</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Javascript entry application (Vite serves it modularly) -->
+  <script type="module" src="src/js/pdf-to-md.js"></script>
+</body>
+</html>

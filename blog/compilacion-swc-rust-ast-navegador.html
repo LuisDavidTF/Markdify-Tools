@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Tags -->
+  <title>Compilación SWC con Rust en Navegadores: Optimización del AST | Markdify</title>
+  <meta name="description" content="Análisis técnico sobre SWC, el transpilador escrito en Rust. Conoce cómo procesa árboles de sintaxis abstracta (AST) en el navegador usando WebAssembly.">
+  <meta name="keywords" content="compilacion SWC Rust, SWC vs Babel rendimiento, AST parser javascript rust, SWC WebAssembly, compilador de javascript, vercel swc">
+  <meta name="author" content="Markdify Tools">
+  <meta name="robots" content="index, follow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%25%22 stop-color=%22%238B5CF6%22/%3E%3Cstop offset=%22100%25%22 stop-color=%22%23D946EF%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%230A0F1E%22/%3E%3Ctext y=%22.85em%22 font-size=%2272%22 x=%2214%22 fill=%22url(%23g)%22 font-family=%22system-ui,sans-serif%22 font-weight=%22800%22%3EM%3C/text%3E%3C/svg%3E">
+
+  <!-- Custom Design Stylesheet Aggregator -->
+  <link rel="stylesheet" href="../src/css/style.css">
+
+  <!-- JSON-LD Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Compilación SWC con Rust en Navegadores: Optimización del AST",
+    "description": "Cómo funciona el motor de compilación rápido de SWC basado en Rust y cómo procesa ASTs localmente en el navegador con WebAssembly.",
+    "inLanguage": "es",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://markdify.com/blog/compilacion-swc-rust-ast-navegador.html"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Luis David"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Markdify",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://markdify.com/logo.png"
+      }
+    },
+    "datePublished": "2026-06-03",
+    "dateModified": "2026-06-03"
+  }
+  </script>
+</head>
+<body>
+
+  <div id="app-container">
+    
+    <!-- STICKY HEADER -->
+    <header id="main-header">
+      <div class="logo-section">
+        <a href="../index.html" class="logo-icon" style="text-decoration: none;">M</a>
+        <div class="logo-title">
+          <span class="logo-title-heading" style="cursor: pointer;" onclick="window.location.href='../index.html'">Markdify</span>
+          <span>Blog Técnico & Guías</span>
+        </div>
+      </div>
+      
+      <div class="actions-section">
+        <a href="../markdown-to-pdf.html" class="btn btn-primary">Abrir Editor Pro</a>
+        
+        <!-- Theme Toggle Switch -->
+        <button class="theme-toggle-btn" id="btn-toggle-theme" aria-label="Cambiar Tema" title="Cambiar Tema (Claro / Oscuro)">
+          <svg viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- ARTICLE BODY CONTAINER -->
+    <section class="article-detail-section" style="margin-top: 48px; margin-bottom: 64px;">
+      <article class="article-container">
+        <div class="article-header">
+          <span class="category">Desarrollo & Rendimiento</span>
+          <h1>Compilación SWC con Rust en Navegadores: Optimización del AST</h1>
+          <div class="meta">Publicado por Luis David | 3 de Junio, 2026</div>
+        </div>
+        <div class="article-body">
+          <p>Durante años, el ecosistema de desarrollo en Javascript ha dependido de herramientas escritas en su propio lenguaje para transpilar y empaquetar código. El caso más representativo es <strong>Babel</strong>, que tokeniza, parsea y transforma código moderno (ES6+, TypeScript) construyendo un Árbol de Sintaxis Abstracta (<strong>AST - Abstract Syntax Tree</strong>) estructurado en memoria. Sin embargo, al crecer las bases de código, el recolector de basura de Javascript (Garbage Collector) y la naturaleza monohilo de Node.js se han convertido en cuellos de botella severos.</p>
+          
+          <p>Para mitigar estas deficiencias de rendimiento surgió <strong>SWC (Speedy Web Compiler)</strong>, una suite de transpilación y minificación de código de alto rendimiento escrita en <strong>Rust</strong>. Respaldada oficialmente por empresas del ecosistema como <strong>Vercel</strong> (que la integró en el compilador de Next.js), SWC ha demostrado ser hasta 20 veces más veloz que Babel en cargas de trabajo de CPU intensivas.</p>
+
+          <blockquote>
+            <p><strong>¿Qué es un AST?</strong> Un Árbol de Sintaxis Abstracta es una estructura de datos jerárquica en forma de árbol que representa la estructura sintáctica del código fuente. Cada nodo del árbol denota una construcción que ocurre en el código (como declaraciones de variables, funciones o bucles).</p>
+          </blockquote>
+
+          <h3>¿Por qué Rust es más eficiente procesando ASTs?</h3>
+          <p>El procesamiento de código fuente requiere constantes asignaciones de memoria y recorridos recursivos (visitors) del árbol sintáctico. Rust ofrece ventajas cruciales en este campo:</p>
+          <ol>
+            <li><strong>Ausencia de Garbage Collector:</strong> Rust gestiona la memoria en tiempo de compilación a través de su sistema de propiedad y préstamo (ownership and borrowing), eliminando las pausas imprevistas que produce el recolector de basura de Javascript al limpiar millones de nodos AST huérfanos.</li>
+            <li><strong>Concurrencia Segura y Paralelismo:</strong> Utilizando bibliotecas como Rayon, SWC puede paralelizar la transformación de archivos individuales en múltiples hilos de CPU sin peligro de condiciones de carrera, algo que Node.js no puede hacer nativamente de forma directa.</li>
+            <li><strong>Layout de Memoria Estricto:</strong> Rust permite definir estructuras con un alineamiento de memoria contiguo en el heap, reduciendo los fallos de caché de CPU (cache misses) cuando el parser recorre el AST.</li>
+          </ol>
+
+          <h3>SWC en el Navegador con WebAssembly</h3>
+          <p>Una de las características más potentes de SWC es su capacidad para ser compilado hacia el target de destino <code>wasm32-unknown-unknown</code>. Esto permite que la misma lógica de optimización y parsing en Rust se ejecute directamente en el navegador del usuario a velocidad de compilación binaria.</p>
+          
+          <p>Aplicaciones modernas de análisis estático, herramientas de edición de Markdown interactivas y sandboxes de código (como CodeSandbox o StackBlitz) utilizan módulos WebAssembly de SWC para procesar o formatear código en local, garantizando que los datos no abandonen la memoria RAM de la pestaña del navegador.</p>
+
+          <h3>Ejemplo de uso de SWC WASM en Cliente</h3>
+          <p>A continuación se describe cómo inicializar el módulo WASM de SWC en Javascript para compilar dinámicamente TypeScript en el navegador:</p>
+
+<pre><code class="language-javascript">// Importación del paquete compilado a WASM
+import initSWC, { transform } from 'https://esm.sh/@swc/wasm-web';
+
+async function ejecutarCompilacionRust() {
+  // 1. Descargar e inicializar el binario WASM
+  await initSWC();
+  
+  const tsCode = `
+    const sumar = (a: number, b: number): number => a + b;
+    console.log(sumar(10, 20));
+  `;
+  
+  // 2. Transpilar TypeScript a JavaScript ES5 nativo
+  const result = await transform(tsCode, {
+    jsc: {
+      parser: {
+        syntax: "typescript"
+      },
+      target: "es5"
+    }
+  });
+  
+  console.log(result.code);
+  // Salida: var sumar = function(a, b) { return a + b; }; console.log(sumar(10, 20));
+}
+</code></pre>
+
+          <h3>Beneficios del Enfoque Híbrido</h3>
+          <p>Utilizar compiladores escritos en lenguajes de sistemas como Rust dentro de interfaces Web a través de WebAssembly representa un salto cuantitativo. Esto hace viable la creación de entornos de desarrollo integrados (IDEs), formateadores y convertidores robustos de Markdown a PDF que operan sin servidores de backend, reduciendo los costos de infraestructura a cero y garantizando la confidencialidad absoluta del desarrollador.</p>
+
+          <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 32px 0;">
+
+          <h3>Referencias Científicas y Documentación Oficial</h3>
+          <ul class="references-list" style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted);">
+            <li><strong>SWC Project Docs:</strong> <a href="https://swc.rs/" target="_blank" rel="noopener">SWC - Speedy Web Compiler Official Documentation</a></li>
+            <li><strong>Vercel Engineering:</strong> <a href="https://vercel.com/blog/nextjs-12" target="_blank" rel="noopener">Next.js 12 Architecture and Rust Compiler Adoption</a></li>
+            <li><strong>Rust WASM Working Group:</strong> <a href="https://rustwasm.github.io/book/" target="_blank" rel="noopener">Rust and WebAssembly Official Book</a></li>
+            <li><strong>ACM Digital Library:</strong> <a href="https://dl.acm.org/doi/10.1145/3062341.3062363" target="_blank" rel="noopener">Bringing the Web up to Speed with WebAssembly (Haas et al., 2017)</a></li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- FOOTER SECTION & LEGAL LINKS -->
+    <footer id="main-footer">
+      <div class="footer-grid">
+        <div class="footer-col branding-col">
+          <div class="footer-logo">
+            <div class="logo-icon">M</div>
+            <span class="logo-text">Markdify</span>
+          </div>
+          <p class="branding-desc">Herramienta premium de Markdown local con procesamiento en el cliente y privacidad de datos absoluta.</p>
+          <div class="security-badge">
+            <span class="badge-icon">🛡️</span>
+            <span class="badge-text">Procesamiento 100% Local (RAM)</span>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Herramientas</h4>
+          <ul class="footer-list">
+            <li><a href="../markdown-to-pdf.html"><span>⚡</span> Markdown a PDF Pro</a></li>
+            <li><a href="../pdf-to-markdown.html"><span>📂</span> PDF a Markdown Local</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Recursos & Guías</h4>
+          <ul class="footer-list">
+            <li><a href="guia-sintaxis-gfm.html"><span>💡</span> Sintaxis GFM Completa</a></li>
+            <li><a href="ia-a-pdf.html"><span>🤖</span> Reportes de IA a PDF</a></li>
+            <li><a href="cv-markdown.html"><span>📝</span> Hojas de Vida con Markdown</a></li>
+            <li><a href="privacidad-local.html"><span>🔒</span> Seguridad Client-Side</a></li>
+            <li><a href="salto-pagina-pdf.html"><span>📖</span> El Arte del Salto de Página</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col privacy-col">
+          <h4>Garantía Zero-Server</h4>
+          <div class="privacy-bullet">
+            <span class="bullet-dot"></span>
+            <p><strong>Cero Servidores Backend:</strong> Tu información sensible nunca viaja por internet ni se almacena externamente.</p>
+          </div>
+          <div class="privacy-bullet">
+            <span class="bullet-dot"></span>
+            <p><strong>Persistencia Segura:</strong> Los borradores residen exclusivamente en el localStorage de tu navegador.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Markdify &mdash; Open Source bajo licencia MIT</p>
+        <div class="footer-bottom-links">
+          <a href="https://github.com/LuisDavidTF/markdify" target="_blank" rel="noopener">GitHub</a>
+          <span class="sep">&middot;</span>
+          <a href="../privacy.html">Privacidad</a>
+          <span class="sep">&middot;</span>
+          <a href="../terms.html">Términos</a>
+          <span class="sep">&middot;</span>
+          <a href="../index.html">Herramientas</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="../src/js/main.js"></script>
+</body>
+</html>
