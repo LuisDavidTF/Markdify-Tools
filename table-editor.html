@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Tags -->
+  <title>Editor Visual de Tablas Markdown Online | Markdify</title>
+  <meta name="description" content="El mejor editor visual de tablas Markdown en línea. Copia y pega desde Excel o Google Sheets, edita celdas de forma interactiva y genera código Markdown alineado gratis y 100% local.">
+  <meta name="keywords" content="editor de tablas markdown, creador de tablas markdown, convertir excel a markdown, generador de tablas markdown, markdify, csv a markdown, tsv a markdown, editor visual markdown">
+  <meta name="author" content="Markdify Tools">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://markdify.tech/table-editor.html">
+  <meta property="og:title" content="Editor Visual de Tablas Markdown - Markdify">
+  <meta property="og:description" content="Generador interactivo de tablas Markdown. Edita filas, columnas y alineación localmente con vista previa instantánea y soporte para hojas de cálculo.">
+  <meta property="og:image" content="https://markdify.tech/assets/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%25%22 stop-color=%22%238B5CF6%22/%3E%3Cstop offset=%22100%25%22 stop-color=%22%23D946EF%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%230A0F1E%22/%3E%3Ctext y=%22.85em%22 font-size=%2272%22 x=%2214%22 fill=%22url(%23g)%22 font-family=%22system-ui,sans-serif%22 font-weight=%22800%22%3EM%3C/text%3E%3C/svg%3E">
+
+  <!-- Custom Design Stylesheet Aggregator -->
+  <link rel="stylesheet" href="src/css/style.css">
+
+  <!-- JSON-LD Structured Data for WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Editor de Tablas Markdown Markdify",
+    "url": "https://markdify.tech/table-editor.html",
+    "description": "Herramienta interactiva para crear, importar de Excel y editar tablas Markdown de forma visual, rápida y 100% local en tu navegador.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <div id="app-container">
+    
+    <!-- STICKY HEADER -->
+    <header id="main-header">
+      <div class="logo-section">
+        <a href="index.html" class="logo-icon" style="text-decoration: none;">M</a>
+        <div class="logo-title">
+          <span class="logo-title-heading" style="cursor: pointer;" onclick="window.location.href='index.html'" title="Markdify - Convertidor de Markdown a PDF Pro y Visor de GFM en Línea">Markdify</span>
+          <span>Editor de Tablas Markdown</span>
+        </div>
+      </div>
+      
+      <div class="actions-section">
+        <a href="markdown-to-pdf.html" class="btn btn-header-secondary" data-icon="⚡" title="Editor Markdown a PDF Pro">
+          <span>⚡ Markdown a PDF</span>
+        </a>
+        <a href="pdf-to-markdown.html" class="btn btn-header-secondary" data-icon="📂" title="Convertidor de PDF a Markdown">
+          <span>📂 PDF a Markdown</span>
+        </a>
+        
+        <!-- Theme switcher toggle button -->
+        <button class="theme-toggle-btn" id="btn-toggle-theme" aria-label="Cambiar Tema" title="Cambiar Tema (Claro / Oscuro)">
+          <svg viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN WORKSPACE -->
+    <main class="table-editor-container">
+      
+      <!-- TITLE AND DESC -->
+      <div class="tool-description">
+        <span class="suite-tag" style="background-color: var(--accent-success-bg); color: var(--accent-success); border-color: rgba(74, 222, 128, 0.25);">Procesamiento 100% Local (RAM)</span>
+        <h1 style="font-family: var(--font-heading); font-weight: 800; font-size: 2.2rem; margin-top: 10px; margin-bottom: 8px;">Editor Visual de Tablas Markdown</h1>
+        <p>Edita celdas, filas y columnas de manera interactiva, alinea columnas y copia el código Markdown formateado de forma óptima para tus reportes e informes.</p>
+      </div>
+
+      <!-- WORKSPACE PANELS -->
+      <div class="table-workspace">
+        
+        <!-- LEFT PANEL: GRID EDITOR -->
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          
+          <!-- IMPORTER COLLAPSIBLE CARD -->
+          <div class="editor-card">
+            <div class="card-header">
+              <h2><span>📥 Importar desde Excel / CSV / Markdown</span></h2>
+            </div>
+            <div class="card-body">
+              <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 12px; margin-top: 0;">Pega datos de Excel/Sheets, CSV, o tablas Markdown. También puedes <b>arrastrar y soltar un archivo</b> (.csv, .tsv, .md, .txt) sobre el cuadro:</p>
+              <textarea class="import-box-textarea" id="import-textarea" placeholder="Ejemplo Excel:&#10;Producto&#9;Precio&#9;Stock&#10;Laptop&#9;999&#9;Si&#10;&#10;Ejemplo Markdown:&#10;| Columna 1 | Columna 2 |&#10;| --- | --- |&#10;| Celda A | Celda B |"></textarea>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <button class="btn btn-primary" id="btn-import-data" style="padding: 10px 18px; font-size: 0.82rem; font-weight: 600;">⚡ Cargar en el Editor</button>
+                <button class="btn btn-secondary" id="btn-trigger-file" style="padding: 10px 18px; font-size: 0.82rem; font-weight: 600;">📂 Subir Archivo (.csv, .tsv, .md)</button>
+                <input type="file" id="import-file-input" accept=".csv,.tsv,.txt,.md" style="display: none;">
+              </div>
+            </div>
+          </div>
+
+          <!-- GRID WORKSPACE CARD -->
+          <div class="editor-card">
+            <div class="card-header">
+              <h2><span>🎛️ Cuadrícula Interactiva</span></h2>
+              <div style="display: flex; gap: 10px;">
+                <button class="btn btn-secondary" id="btn-clear-table" style="padding: 6px 12px; font-size: 0.76rem; border-color: rgba(239, 68, 68, 0.3); color: var(--accent-error);">Vaciar Tabla</button>
+              </div>
+            </div>
+            <div class="card-body">
+              
+              <!-- GRID ACTION BUTTONS -->
+              <div class="grid-controls-row">
+                <button class="btn btn-primary" id="btn-add-row" style="padding: 8px 14px; font-size: 0.78rem; gap: 6px;">
+                  <span>➕ Fila</span>
+                </button>
+                <button class="btn btn-primary" id="btn-add-col" style="padding: 8px 14px; font-size: 0.78rem; gap: 6px;">
+                  <span>➕ Columna</span>
+                </button>
+                <span style="font-size: 0.76rem; color: var(--text-muted); margin-left: auto;">💡 Las celdas se guardan en vivo en el generador de la derecha.</span>
+              </div>
+
+              <!-- VIEWPORT FOR DYNAMIC TABLE -->
+              <div class="table-grid-viewport" id="table-grid-element">
+                <!-- Javascript builds the table here -->
+              </div>
+
+              <!-- VIEWPORT FOR CARDS (MOBILE) -->
+              <div class="mobile-cards-viewport" id="mobile-cards-element">
+                <!-- Javascript builds mobile row cards here -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT PANEL: GENERATED MARKDOWN CODE -->
+        <div class="editor-card" style="position: sticky; top: calc(var(--header-height) + 20px);">
+          <div class="card-header">
+            <h2><span>📋 Código Markdown Generado</span></h2>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-secondary" id="btn-copy-code" style="padding: 6px 12px; font-size: 0.76rem; font-weight: 600;">Copiar</button>
+              <button class="btn btn-primary" id="btn-download-code" style="padding: 6px 12px; font-size: 0.76rem; font-weight: 600;">Descargar .md</button>
+            </div>
+          </div>
+          <div class="card-body output-codeblock-wrapper">
+            <pre><code id="markdown-code-output">| Producto | Precio (USD) | Disponibilidad |
+| :--- | ---: | :---: |
+| Laptop Gamer Ryzen 7 | 1,299.00 | En Stock |
+| Teclado Mecánico RGB | 89.50 | Pocas Unidades |
+| Mouse Óptico Inalámbrico | 45.00 | Sin Stock |</code></pre>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- FOOTER SECTION & LEGAL LINKS -->
+    <footer id="main-footer" style="margin-top: 60px;">
+      <div class="footer-grid">
+        <!-- Columna 1: Branding -->
+        <div class="footer-col branding-col">
+          <div class="footer-logo">
+            <div class="logo-icon">M</div>
+            <span class="logo-text">Markdify</span>
+          </div>
+          <p class="branding-desc">Herramienta premium de Markdown local con procesamiento en el cliente y privacidad de datos absoluta.</p>
+          <div class="security-badge">
+            <span class="badge-icon">🛡️</span>
+            <span class="badge-text">Procesamiento 100% Local (RAM)</span>
+          </div>
+        </div>
+        
+        <!-- Columna 2: Herramientas -->
+        <div class="footer-col">
+          <h4>Herramientas</h4>
+          <ul class="footer-list">
+            <li><a href="markdown-to-pdf.html"><span>⚡</span> Markdown a PDF Pro</a></li>
+            <li><a href="pdf-to-markdown.html"><span>📂</span> PDF a Markdown Local</a></li>
+            <li><a href="table-editor.html"><span>🎛️</span> Editor de Tablas Markdown</a></li>
+          </ul>
+        </div>
+        
+        <!-- Columna 3: Blog & Recursos -->
+        <div class="footer-col">
+          <h4>Recursos & Guías</h4>
+          <ul class="footer-list">
+            <li><a href="blog/guia-sintaxis-gfm.html"><span>💡</span> Sintaxis GFM Completa</a></li>
+            <li><a href="blog/ia-a-pdf.html"><span>🤖</span> Reportes de IA a PDF</a></li>
+            <li><a href="blog/cv-markdown.html"><span>📝</span> Hojas de Vida con Markdown</a></li>
+            <li><a href="blog/privacidad-local.html"><span>🔒</span> Seguridad Client-Side</a></li>
+            <li><a href="blog/salto-pagina-pdf.html"><span>📖</span> El Arte del Salto de Página</a></li>
+          </ul>
+        </div>
+        
+        <!-- Columna 4: Garantía de Privacidad -->
+        <div class="footer-col privacy-col">
+          <h4>Garantía Zero-Server</h4>
+          <div class="privacy-bullet">
+            <span class="bullet-dot"></span>
+            <p><strong>Cero Servidores Backend:</strong> Tu información sensible nunca viaja por internet ni se almacena externamente.</p>
+          </div>
+          <div class="privacy-bullet">
+            <span class="bullet-dot"></span>
+            <p><strong>Persistencia Segura:</strong> Los borradores residen exclusivamente en el localStorage de tu navegador.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Markdify &mdash; Open Source bajo licencia MIT</p>
+        <div class="footer-bottom-links">
+          <a href="https://github.com/LuisDavidTF/markdify" target="_blank" rel="noopener">GitHub</a>
+          <span class="sep">&middot;</span>
+          <a href="privacy.html">Privacidad</a>
+          <span class="sep">&middot;</span>
+          <a href="terms.html">Términos</a>
+          <span class="sep">&middot;</span>
+          <a href="ROADMAP.md">Roadmap de Colaboración</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Javascript entry application -->
+  <script type="module" src="src/js/table-editor.js"></script>
+</body>
+</html>

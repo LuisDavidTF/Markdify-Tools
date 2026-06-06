@@ -1,140 +1,243 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core Landing Page -->
   <url>
     <loc>https://markdify.tech/</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+  <!-- Markdown to PDF tool -->
   <url>
     <loc>https://markdify.tech/markdown-to-pdf.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  <!-- PDF to Markdown tool -->
+  <url>
+    <loc>https://markdify.tech/pdf-to-markdown.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- Table Editor tool -->
+  <url>
+    <loc>https://markdify.tech/table-editor.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- Privacy & Terms -->
   <url>
     <loc>https://markdify.tech/privacy.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://markdify.tech/terms.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- 33 Blog Articles -->
+  <url>
+    <loc>https://markdify.tech/blog/importar-excel-a-markdown.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://markdify.tech/blog/guia-tablas-markdown-gfm.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://markdify.tech/blog/diseno-responsive-tablas-movil.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://markdify.tech/blog/migracion-csv-excel-a-markdown.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://markdify.tech/blog/seguridad-datos-csv-local.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://markdify.tech/blog/formato-tablas-pdf-limpio.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://markdify.tech/blog/algoritmo-csv-rfc4180-javascript.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://markdify.tech/blog/guia-sintaxis-gfm.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://markdify.tech/blog/ia-a-pdf.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://markdify.tech/blog/cv-markdown.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://markdify.tech/blog/privacidad-local.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://markdify.tech/blog/salto-pagina-pdf.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://markdify.tech/blog/especificacion-gfm.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://markdify.tech/blog/seguridad-xss-dompurify.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://markdify.tech/blog/motores-renderizado-pdf.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://markdify.tech/blog/optimizacion-tipografica-codigo.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://markdify.tech/blog/impacto-ats-hojas-vida.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://markdify.tech/blog/css-paged-media-impresion.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://markdify.tech/blog/privacidad-serverless-saas.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://markdify.tech/blog/html5-localstorage-persistencia.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://markdify.tech/blog/markdown-prompt-engineering.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://markdify.tech/blog/seo-tecnico-cloudflare-pages.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://markdify.tech/blog/svg-vs-canvas-vectorizacion</loc>
-    <lastmod>2026-05-27</lastmod>
+    <loc>https://markdify.tech/blog/svg-vs-canvas-vectorizacion.html</loc>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://markdify.tech/blog/html5-file-api-offline.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://markdify.tech/blog/css-flexbox-grid-editorial.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://markdify.tech/blog/generadores-sitios-estaticos-documentacion.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://markdify.tech/blog/hibridacion-markdown-html5.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://markdify.tech/blog/compilacion-swc-rust-ast-navegador.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://markdify.tech/blog/html5-canvas-seguridad-fingerprinting.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://markdify.tech/blog/webassembly-memoria-rendimiento-v8.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://markdify.tech/blog/mozilla-readability-heuristica-extraccion-contenido.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://markdify.tech/blog/pdf-referencia-iso-32000-maquetacion.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://markdify.tech/blog/w3c-dom-sanitizer-api-seguridad.html</loc>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

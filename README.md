@@ -22,12 +22,13 @@
 |:---|:---|
 | 🛡️ **Privacidad Absoluta** | Procesamiento 100% local en tu RAM — tu contenido nunca sale del navegador |
 | ⚡ **Renderizado en Tiempo Real** | Preview instantáneo con soporte completo de GFM (GitHub Flavored Markdown) |
+| 🎛️ **Editor de Tablas** | Cuadrícula interactiva con importación rápida de Excel, Google Sheets, CSV y TSV |
 | 📄 **PDF Carta / A4** | Exportación vectorial de alta fidelidad con márgenes profesionales |
 | 🖨️ **Impresión Nativa** | Compatibilidad total con el motor de impresión del navegador |
 | 💼 **Plantillas Incluidas** | Informe Ejecutivo, Curriculum Vitae ATS, Sprint Planning, Guía PDF |
 | 💡 **Asistente GFM** | 28 atajos de sintaxis interactivos con inserción al cursor |
 | 🌗 **Tema Claro / Oscuro** | Detección automática del sistema operativo con switch manual |
-| 📱 **Diseño Responsivo** | Optimizado para desktop, tablet y móvil con paneles adaptativos |
+| 📱 **Diseño Responsivo** | Optimizado para desktop, tablet y móvil con paneles adaptativos y modales táctiles |
 | 🔖 **Autoguardado Local** | El borrador persiste en `localStorage` sin ninguna cuenta de usuario |
 
 ---
@@ -61,14 +62,17 @@ Abre `http://localhost:5173` en tu navegador.
 markdify/
 ├── index.html              # Landing page con blog categorizado
 ├── markdown-to-pdf.html    # Editor principal de Markdown a PDF
+├── pdf-to-markdown.html    # Convertidor de PDF a Markdown offline
+├── table-editor.html       # Editor visual interactivo de tablas Markdown
 ├── privacy.html            # Política de privacidad
-├── blog/                   # Artículos SEO (20 artículos de investigación profunda)
+├── terms.html              # Términos de servicio
+├── blog/                   # Artículos SEO (33 artículos de investigación profunda)
 │   ├── guia-sintaxis-gfm.html
 │   ├── ia-a-pdf.html
 │   ├── cv-markdown.html
 │   ├── privacidad-local.html
 │   ├── salto-pagina-pdf.html
-│   └── ... (20 artículos totales estructurados para SEO y AdSense)
+│   └── ... (33 artículos totales estructurados para SEO)
 ├── src/
 │   ├── css/
 │   │   ├── variables.css   # Tokens HSL (paleta de colores, espaciado)
@@ -76,17 +80,19 @@ markdify/
 │   │   ├── layout.css      # Header sticky, footer premium
 │   │   ├── dashboard.css   # Grid de herramientas y blog cards
 │   │   ├── editor.css      # Workspace split-panel responsivo
+│   │   ├── table-editor.css# Estilos de cuadrícula interactiva y modales
 │   │   ├── preview.css     # Estilos PDF y @media print
 │   │   ├── components.css  # Sistema de botones, modals, toasts
 │   │   └── style.css       # Agregador de imports
 │   └── js/
 │       ├── main.js         # Inicializador del ecosistema
 │       ├── editor.js       # Resizer, scroll sync, atajos de teclado
+│       ├── table-editor.js # Controlador de la cuadrícula, CSV/Excel/Markdown parser
 │       ├── pdf.js          # Exportación html2pdf y print nativo
 │       ├── theme.js        # Sistema de temas claro/oscuro
 │       └── templates.js    # Plantillas de trabajo (CV, informe, etc.)
 ├── public/                 # Assets estáticos (logo, og-image, sitemap, robots)
-├── vite.config.js          # Multi-page build con 23 entry points
+├── vite.config.js          # Multi-page build con 39 entry points
 └── package.json
 ```
 
@@ -126,11 +132,14 @@ pnpm preview    # Previsualizar el build de producción
 
 ### Ideas para contribuir
 
-- [ ] Nuevas plantillas de trabajo (carta de presentación, informe financiero, etc.)
-- [ ] Más herramientas web (formateador JSON, convertidor Base64, etc.)
-- [ ] Traducciones del contenido a otros idiomas
-- [ ] Mejoras de accesibilidad (ARIA, alto contraste)
-- [ ] Tests automatizados de UI
+Consulta nuestro archivo **[ROADMAP.md](ROADMAP.md)** para ver en detalle la lista completa de propuestas y requerimientos técnicos de issues abiertos a la comunidad, que incluyen:
+*   Markdown a ePub / MOBI
+*   Markdown a Presentaciones (Slides)
+*   Markdown a HTML para Email (CSS Inline)
+*   Conversión Notion/Word a Markdown
+*   Procesamiento por lotes (Bulk processing)
+*   Soporte completo de diagramas Mermaid
+*   Cifrado de Markdown local (WebCrypto API)
 
 > **Regla principal:** Usa siempre `pnpm` — nunca `npm` ni `yarn`. Consulta `gemini.md` para las directrices completas de contribución.
 
