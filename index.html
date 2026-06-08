@@ -62,10 +62,45 @@
       </div>
       
       <div class="actions-section">
-        <a href="https://orthos.markdify.tech/" target="_blank" class="btn btn-secondary" style="border-color: rgba(99, 102, 241, 0.35); color: #818cf8;">Planos 2D (Orthos)</a>
-        <a href="#tools-suite" class="btn btn-secondary">Herramientas</a>
-        <a href="#blog-guides" class="btn btn-secondary">Guías & Blog</a>
-        <a href="markdown-to-pdf.html" class="btn btn-primary">Abrir Editor Pro</a>
+        <!-- Ecosistema Markdify Dropdown -->
+        <details class="ecosystem-dropdown">
+          <summary class="btn-header-secondary" data-icon="❖" title="Ecosistema Markdify" style="border-color: rgba(99, 102, 241, 0.35); color: #818cf8;">
+            <span>❖ Ecosistema</span>
+          </summary>
+          <div class="dropdown-menu">
+            <div class="dropdown-menu-header">Ecosistema Markdify</div>
+            <a href="index.html" class="dropdown-item">
+              <span class="dropdown-item-icon">⚡</span>
+              <div class="dropdown-item-content">
+                <div class="dropdown-item-title-row">
+                  <span class="dropdown-item-title">Markdify Tools</span>
+                  <span class="dropdown-item-badge active">Esta App</span>
+                </div>
+                <span class="dropdown-item-desc">Suite de procesadores Markdown y PDFs vectoriales locales.</span>
+              </div>
+            </a>
+            <a href="https://orthos.markdify.tech/" target="_blank" class="dropdown-item">
+              <span class="dropdown-item-icon">📐</span>
+              <div class="dropdown-item-content">
+                <div class="dropdown-item-title-row">
+                  <span class="dropdown-item-title">Orthos</span>
+                  <span class="dropdown-item-badge external">Planos 2D</span>
+                </div>
+                <span class="dropdown-item-desc">Planificador interactivo de habitaciones y diseño de interiores en 2D.</span>
+              </div>
+            </a>
+          </div>
+        </details>
+
+        <a href="#tools-suite" class="btn-header-secondary" data-icon="🛠️" title="Ir a la suite de herramientas">
+          <span>Herramientas</span>
+        </a>
+        <a href="#blog-guides" class="btn-header-secondary" data-icon="📚" title="Ver artículos de blog y guías">
+          <span>Guías & Blog</span>
+        </a>
+        <a href="markdown-to-pdf.html" class="btn-header-primary" data-icon="⚡" title="Abrir editor de Markdown a PDF Pro">
+          <span>Abrir Editor Pro</span>
+        </a>
         
         <!-- Rotating Theme Toggle Switch -->
         <button class="theme-toggle-btn" id="btn-toggle-theme" aria-label="Cambiar Tema" title="Cambiar Tema (Claro / Oscuro)">
@@ -117,13 +152,13 @@
         </a>
 
         <!-- Planificador de Habitaciones 2D (Orthos) Card -->
-        <a href="https://orthos.markdify.tech/" target="_blank" class="tool-card" style="border: 1px solid rgba(99, 102, 241, 0.25); background: linear-gradient(135deg, rgba(21, 29, 48, 0.6) 0%, rgba(99, 102, 241, 0.03) 100%);">
-          <div class="tool-card-status" style="background: #6366f1; color: #fff;">Nuevo</div>
+        <a href="https://orthos.markdify.tech/" target="_blank" class="tool-card tool-card-orthos">
+          <div class="tool-card-status">Ecosistema</div>
           <div class="tool-card-icon">📐</div>
           <div class="tool-card-content">
             <h3>Orthos: Diseñador de Planos 2D</h3>
-            <p>Planificador interactivo de habitaciones y diseño de interiores. Ajusta medidas de paredes y muebles en tiempo real con procesamiento 100% local y descarga en SVG/PNG.</p>
-            <span class="tool-card-action" style="color: #818cf8;">Iniciar Diseñador &rarr;</span>
+            <p><strong class="ecosystem-tag" style="font-size: 0.85rem; display: block; margin-bottom: 6px;">Ecosistema Markdify &bull; Diseño de Interiores</strong>Planificador interactivo de habitaciones y diseño de interiores. Ajusta medidas de paredes y muebles en tiempo real con procesamiento 100% local y descarga en SVG/PNG.</p>
+            <span class="tool-card-action">Iniciar Diseñador &rarr;</span>
           </div>
         </a>
       </div>

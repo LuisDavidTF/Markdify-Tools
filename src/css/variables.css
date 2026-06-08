@@ -61,8 +61,16 @@
   --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
   
   --glass-bg: rgba(10, 15, 29, 0.7);
+  --dropdown-bg: rgba(10, 15, 29, 0.94);
   --glass-border: rgba(255, 255, 255, 0.05);
   --glass-blur: 16px;
+  
+  --orthos-border: rgba(99, 102, 241, 0.25);
+  --orthos-bg: linear-gradient(135deg, rgba(21, 29, 48, 0.6) 0%, rgba(99, 102, 241, 0.03) 100%);
+  --orthos-status-bg: rgba(99, 102, 241, 0.15);
+  --orthos-status-color: #818cf8;
+  --orthos-accent: #818cf8;
+  --orthos-accent-hover: #a5b4fc;
   
   --scrollbar-thumb: hsla(224, 100%, 100%, 0.1);
   --scrollbar-thumb-hover: var(--accent);
@@ -88,8 +96,16 @@
     --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.08);
     
     --glass-bg: rgba(255, 255, 255, 0.8);
+    --dropdown-bg: rgba(255, 255, 255, 0.96);
     --glass-border: rgba(15, 23, 42, 0.05);
     --glass-blur: 12px;
+    
+    --orthos-border: rgba(99, 102, 241, 0.2);
+    --orthos-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(99, 102, 241, 0.03) 100%);
+    --orthos-status-bg: rgba(99, 102, 241, 0.1);
+    --orthos-status-color: #4f46e5;
+    --orthos-accent: #4f46e5;
+    --orthos-accent-hover: #3730a3;
     
     --scrollbar-thumb: rgba(15, 23, 42, 0.15);
     --scrollbar-thumb-hover: var(--accent);
@@ -115,8 +131,16 @@
   --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.08);
   
   --glass-bg: rgba(255, 255, 255, 0.8);
+  --dropdown-bg: rgba(255, 255, 255, 0.96);
   --glass-border: rgba(15, 23, 42, 0.05);
   --glass-blur: 12px;
+  
+  --orthos-border: rgba(99, 102, 241, 0.2);
+  --orthos-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(99, 102, 241, 0.03) 100%);
+  --orthos-status-bg: rgba(99, 102, 241, 0.1);
+  --orthos-status-color: #4f46e5;
+  --orthos-accent: #4f46e5;
+  --orthos-accent-hover: #3730a3;
   
   --scrollbar-thumb: rgba(15, 23, 42, 0.15);
   --scrollbar-thumb-hover: var(--accent);
@@ -140,8 +164,16 @@
   --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
   
   --glass-bg: rgba(10, 15, 29, 0.7);
+  --dropdown-bg: rgba(10, 15, 29, 0.94);
   --glass-border: rgba(255, 255, 255, 0.05);
   --glass-blur: 16px;
+  
+  --orthos-border: rgba(99, 102, 241, 0.25);
+  --orthos-bg: linear-gradient(135deg, rgba(21, 29, 48, 0.6) 0%, rgba(99, 102, 241, 0.03) 100%);
+  --orthos-status-bg: rgba(99, 102, 241, 0.15);
+  --orthos-status-color: #818cf8;
+  --orthos-accent: #818cf8;
+  --orthos-accent-hover: #a5b4fc;
   
   --scrollbar-thumb: hsla(224, 100%, 100%, 0.1);
   --scrollbar-thumb-hover: var(--accent);

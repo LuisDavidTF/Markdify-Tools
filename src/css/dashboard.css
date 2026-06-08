@@ -493,3 +493,29 @@
   border: none;
   overflow: hidden;
 }
+
+/* ==========================================================================
+   CUSTOM ORTHOS CARD STYLING (ECOSYSTEM APP)
+   ========================================================================== */
+.tool-card-orthos {
+  border-color: var(--orthos-border) !important;
+  background: var(--orthos-bg) !important;
+}
+
+.tool-card-orthos .tool-card-status {
+  background-color: var(--orthos-status-bg) !important;
+  color: var(--orthos-status-color) !important;
+  border-color: rgba(99, 102, 241, 0.25) !important;
+}
+
+.tool-card-orthos .ecosystem-tag {
+  color: var(--orthos-accent) !important;
+}
+
+.tool-card-orthos .tool-card-action {
+  color: var(--orthos-accent) !important;
+}
+
+.tool-card-orthos:hover .tool-card-action {
+  color: var(--orthos-accent-hover) !important;
+}

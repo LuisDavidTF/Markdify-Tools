@@ -65,3 +65,15 @@ export function toggleTheme() {
 function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
 }
+
+// Dropdown auto-close on click outside
+if (typeof document !== 'undefined') {
+  document.addEventListener('click', (e) => {
+    const dropdowns = document.querySelectorAll('.ecosystem-dropdown');
+    dropdowns.forEach(dropdown => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.removeAttribute('open');
+      }
+    });
+  });
+}
